@@ -1,0 +1,7 @@
+{
+    "email":"admin",
+    "password":"1234",
+    "name":"Text-Admin",
+    "role":"ADMIN",
+    "token":"JWT-Mock"
+}

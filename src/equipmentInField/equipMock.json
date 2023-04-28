@@ -1,0 +1,27 @@
+[
+   
+    {
+       
+        "area":"ETE",
+        "equipamento":"Estação de Tratamento de Efluentes",
+        "equipDB":"ete",
+        "preTag":"ete",
+        "isActive":true
+    },
+    {
+       
+        "area":"Transformador 01",
+        "equipamento":"Subestação 01",
+        "equipDB":"Trafo01",
+        "preTag":"TR01",
+        "isActive":true
+    },
+    {
+       
+        "area":"Transformador 02",
+        "equipamento":"Subestação 01",
+        "equipDB":"Trafo02",
+        "preTag":"TR02",
+        "isActive":true
+    }
+]

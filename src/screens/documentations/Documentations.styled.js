@@ -1,0 +1,44 @@
+import styled from "styled-components";
+
+export const ContainerDoc = styled.div`
+/* background-color:red; */
+display:flex;
+flex-direction:column;
+margin:20px 20px;
+background-color:white;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+padding:4px;
+border-radius:8px;
+.header{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-top:4px;
+  
+    .title{
+    }
+    .select-doc{
+        /* justify-self:flex-end; */
+        /* align-self:flex-end; */
+        margin-right:auto;
+        margin-bottom:4px;
+        button{
+            margin-left:16px;
+        }
+        select{
+            border:none;
+            padding:2px;
+            width:500px;
+        }
+    }
+
+}
+.doc-view{
+/* background-color:green; */
+/* overflow-y:scroll; */
+width:100%;
+height:940px;
+/* height:100vh; */
+margin-right:20px;
+}
+`
