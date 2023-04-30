@@ -120,9 +120,7 @@ const AreaChart = ({ series }) => {
         height={"780px"}
       />
     ) : (
-    <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
+      <span class="sr-only">Sem dados para plotagem...</span>
   )
   }
     </Container >

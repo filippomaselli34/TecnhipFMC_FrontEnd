@@ -13,18 +13,19 @@ left:0;
 .pop-up{
     background-color:white;
 
-height:180px;
-width:300px;
+height:120px;
+width:200px;
 border-radius:8px;
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 display:${({ cardOpen }) => cardOpen ? "flex" : "none"};
 flex-direction:column;
 justify-content: space-between;
-padding:12px;
+padding:8px;
 padding-top:4px;
 margin-bottom:10px;
 right:50%;
 top:50%;
+translate: -55% 65%;
     .closeBtn{
     /* display:flex; */
     position:absolute;
@@ -37,10 +38,10 @@ top:50%;
 }
 .unidade-name{
     font-weight:600;
-    font-size:18px;
+    font-size:12px;
     text-align: center;
     margin:0;
-    margin-top:12px;
+    margin-top:8px;
 }
 .logo{
     /* width:100%; */
@@ -51,19 +52,23 @@ top:50%;
     /* margin-bottom:20px; */
 }
 .btn{
-    /* margin-bottom:8px; */
+    width:100%;
+    margin: 0 auto;
+    text-align:center;
+    font-size:12px;
+    padding:4px;
     /* margin-top:16px; */
 }
 
 :after{
     content: " ";
     position:absolute;
-    top:calc(100% - 12px - 3vw);
-    left:50%;
+    left:calc(100%);
+    top:50%;
     margin-bottom:10px;
     border-width:10px;
     border-style:solid;
-    border-color:#fff transparent transparent transparent;
+    border-color:transparent transparent transparent #fff;
 
 }
 }

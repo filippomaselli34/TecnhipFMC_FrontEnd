@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import docPdf from "../../assets/documentos/documento1.pdf";
 import EsquemaEletricoETE from "../../assets/documentos/EsquemaEletricoETE.pdf";
 import { ContainerDoc } from './Documentations.styled';
@@ -13,10 +13,12 @@ const pdfList = [
 
 const Documentations = () => {
   const [selectValue, setSelectValue] = useState('');
-  const [pdfUrl, setPDFUrl] = useState(pdfList[0].url);
+  const [pdfUrl, setPDFUrl] = useState(EsquemaEletricoETE);
 
   const handlePdfView = () => { // removed selectValue from parameter since it was not being used
-    
+
+
+
     const pdfFound = pdfList.find((pdfDoc) => pdfDoc.nameDisplay === selectValue)
     if (pdfFound) {
       setPDFUrl(pdfFound.url)

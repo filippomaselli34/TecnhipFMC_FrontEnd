@@ -11,10 +11,9 @@ import { Container } from './Charts.styled'
 
 const Charts = ({ type }) => {
 const [series, setSeries]= useState([])
-const [trafo, setTrafo]= useState('trafo01')
 const [isLoading,setIsloading] = useState(false)
 const { selectedTime,
-    setSelectedTime } = useContext(RequisitionContext)
+    setSelectedTime, equip } = useContext(RequisitionContext)
 
 useEffect(()=>{
     handleRequisition()
@@ -22,7 +21,7 @@ useEffect(()=>{
 
     const handleRequisition = async () => {
         const newReq ={
-            trafo,
+            trafo:equip.equipDB.toLowerCase(),
             type,
             initialDate: new Date(new Date().getTime()-getTimeInMilliseconds(selectedTime)),
             finalDate: new Date()
