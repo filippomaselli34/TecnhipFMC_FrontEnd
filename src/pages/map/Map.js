@@ -3,7 +3,7 @@ import DropDownMenu from '../../components/dropDown/DropDownMenu'
 import Header from '../../components/header/Header'
 import userIcon from "../../assets/account-icon.svg"
 import { Container, ContainerHeader, Icon, LocationIcon, UserLogin } from './Map.styled'
-import map from "../../assets/images/map.png"
+import map from "../../assets/images/Map.png"
 import locationIcon from "../../assets/icons/locationIcon.png"
 import MiniCardLocation from '../../components/miniCardLocation/MiniCardLocation'
 import { GlobalContext } from '../../context/GlobalContext'
@@ -57,8 +57,8 @@ const Map = ({ setPageFlow }) => {
             <div className='mapDiv' onClick={()=>setIsOpenDropDown(false)} >
 
                 <LocationIcon
-                tValue={"64%"}
-                lValue={"20%"}
+                tValue={"14%"}
+                lValue={"80.5%"}
                 >
                         <MiniCardLocation
                             client={"TechnipFMC"}

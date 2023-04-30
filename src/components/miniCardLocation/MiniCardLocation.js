@@ -18,7 +18,7 @@ const MiniCardLocation = ({ client,
                 <p className='closeBtn' onClick={() => setCardOpen("")}>X</p>
                 <p className='unidade-name'>Unidade Macaé-RJ</p>
                 <img className='logo' src={technipfmc} />
-                <button className='btn btn-primary' onClick={() => client==="TechnipFMC" && setPageFlow('dash')}>Acessar Cliente</button>
+                <button className='btn btn-primary' onClick={() => client==="TechnipFMC" && setPageFlow('dash')}>Acessar Unidade</button>
             </div>
             <img className='icon-loc' src={iconLoc} onClick={()=>setCardOpen(client)} />
         </Container>

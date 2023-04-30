@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import hamBurgerIcon from "../../assets/hamburger.svg"
-import notificationAtention from "../../assets/images/not_atention.png"
 import notifications from "../../assets/images/notifications.svg"
 import notificationsActive from "../../assets/images/notification_active.gif"
 import userIcon from "../../assets/account-icon.svg"

@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import dashboard from "../../assets/dashboard.svg"
-import factory from "../../assets/factory.svg"
-import machine from "../../assets/machine.svg"
-import expandMore from "../../assets/expand_more.svg"
-import expandLess from "../../assets/expand_less.svg"
-import equipamentos from "../../equipmentInField/equipMock.json"
-import { Container, Icon, NavLinks, Sidebar, SubMenu, ThirdMenu } from './Dashboard.styled'
+import { Container } from './Dashboard.styled'
 import SideBar from '../../components/sidebar/SideBar'
 import Header from '../../components/header/Header'
 import Overview from '../../screens/overview/Overview'
-import Energy from '../../screens/energy/Energy'
-import Events from '../../screens/events/Events'
 import Charts from '../../screens/chartsScreens/Charts'
 import AlarmsList from '../../screens/alarmsList/AlarmsList'
 import Documentations from '../../screens/documentations/Documentations'
-import Variaveis from '../../screens/variaveis/Variaveis'
 import MapLocation from '../../screens/mapLocation/MapLocation'
 import { RequisitionContext } from '../../context/RequisitionContext'
-import RevisionModal from '../../components/modal/RevisionModal'
 import Harmonicas from '../../screens/chartsScreens/Harmonicas'
 import { useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
@@ -61,68 +51,12 @@ const {isOpenDropDown , setIsOpenDropDown} = useContext(GlobalContext)
   }
 
   const handleFlowVaribles = (variable) => {
-    if (variable === "Pressão Descarga") {
-      setVarTable({
-        name: "Temperatura do Oleo",
-        data: [...arrTempDescAntes]
-      })
-    }
-    if (variable === "Temperatura Descarga") {
-      setVarTable({
-        name: "Temperatura Descarga",
-        data: [...arrTempDescAntes]
-      })
-    }
-    if (variable === "Temperatura Desc Antes") {
-      setVarTable({
-        name: "Temperatura do Oleo",
-        data: [...arrTempDescAntes]
-      })
-    }
+
   }
 
   const handleSeries = (arrPD, arrTD, arrTOA,arrTOD) => {
-    const series = [
-      {
-        name: "Pressão Descarga",
-        data: arrPD.map((value) => {
-          //value.x = 20/04/2023, 12:29:15'
-          return {
-            x: new Date(value.x).getTime(),
-            y: value.y
-          }
-        })
-      },
-      {
-        name: "Temperatura Descarga",
-        data: arrTD.map((value) => {
-          return {
-            x: new Date(value.x).getTime(),
-            y: value.y
-          }
-        })
-      },
-      {
-        name: "Temperatura do Óleo Antes Rad.",
-        data: arrTOA.map((value) => {
-          return {
-            x: new Date(value.x).getTime(),
-            y: value.y
-          }
-        })
-      }
-      ,
-      {
-        name: "Temperatura do Óleo Depois Rad",
-        data: arrTOD.map((value) => {
-          return {
-            x: new Date(value.x).getTime(),
-            y: value.y
-          }
-        })
-      }
-    ]
-    setSeries(series)
+  
+
 
   }
 
