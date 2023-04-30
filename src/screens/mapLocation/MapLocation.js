@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import map3d from "../../assets/images/Fundo_scr00_TodasAsAreas.jpg"
+import map3d from "../../assets/images/fmc-01b.jpg"
 import compIcon from "../../assets/icons/events.png"
 import { CompGroup, Container, ContainerList, ContainerMap, Line, Table } from './MapLocation.styled'
 import equips from "../../equipmentInField/equipMock.json"

@@ -13,7 +13,7 @@ left:0;
 .pop-up{
     background-color:white;
 
-height:200px;
+height:180px;
 width:300px;
 border-radius:8px;
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -34,6 +34,13 @@ top:50%;
     margin-left:auto;
     margin-bottom:4px;
     cursor:pointer;
+}
+.unidade-name{
+    font-weight:600;
+    font-size:18px;
+    text-align: center;
+    margin:0;
+    margin-top:12px;
 }
 .logo{
     /* width:100%; */

@@ -17,8 +17,8 @@ useEffect(()=>{
     const newReq ={
         trafo,
         type:"Harmônica",
-        initialDate:"2023-04-26 09:46:06.601522",
-        finalDate:"2023-04-27 14:46:06.601522"
+        initialDate:"2023-04-01 09:46:06.601522",
+        finalDate:new Date()
     }
 
 try {
@@ -37,7 +37,6 @@ try {
     return (
         <Container>
             {data?.correnteA &&
-
                 <ColumnChart data={data}/>
             }
         </Container>

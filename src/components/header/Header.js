@@ -19,15 +19,18 @@ const Header = (props) => {
         isMenuOpen,
         screenFlow,
         equip,
-        modalIsOpen,setModalIsOpen,handleModalClose,handleModalOpen,allEvents, setAllEvents} = props
+        modalIsOpen,setModalIsOpen,
+        handleModalClose,
+        handleModalOpen,
+        allEvents, setAllEvents} = props
+        
         const context = useContext(GlobalContext)
         const {isNotificationOpen, setIsNotificationOpen} = useContext(RequisitionContext)
 
-        const {userName, roleStr} = context
+        const {userName, roleStr, isOpenDropDown , setIsOpenDropDown} = context
     //recebe props para abir e fechar o meu lateral, assim como a localização atual 
     const [notificationColor, setNotificationColor] = useState(false)
     const [notIcon,setNotIcon] = useState(notifications)
-    const [isOpenDropDown , setIsOpenDropDown] = useState(false)
     const [isLoading, setIsloading] = useState(false)
     const [newReq, setNewReq] = useState(false)
     const [firstLoad, setFirstLoad] = useState(false)
@@ -92,7 +95,6 @@ const Header = (props) => {
         // }
 
     }
-console.log(modalUser)
 
     const listAlarm = 
     allEvents
@@ -122,7 +124,6 @@ type:"-",
 userId:"-",
 value:"-"
 }
-console.log(equip)
 
     return (
         <>
@@ -156,7 +157,7 @@ console.log(equip)
                     <Icon acti={true}  src={listAlarm.length>0?notificationsActive:notifications} onClick={handleClick}/>
                     </div>
                 </IconsGroup>
-                <UserLogin onMouseLeave={()=>setIsOpenDropDown(false)} onMouseEnter={()=>setIsOpenDropDown(true)} >
+                <UserLogin onClick={()=>setIsOpenDropDown(!isOpenDropDown)} >
                     <Icon src={userIcon} />
                     <div className='info-user'>
                         <p className='name'>{userName}</p>

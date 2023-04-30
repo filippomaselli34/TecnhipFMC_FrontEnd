@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
 import docPdf from "../../assets/documentos/documento1.pdf";
-import emptyPDF from "../../assets/documentos/Documento-vazio.pdf";
+import EsquemaEletricoETE from "../../assets/documentos/EsquemaEletricoETE.pdf";
 import { ContainerDoc } from './Documentations.styled';
 
 //mockando lista de documentação
 const pdfList = [
   {
-    nameDisplay: "Selecionar",
-    url: emptyPDF
-  },
-  {
-    nameDisplay: "Documentação1",
-    url: docPdf
+    nameDisplay: "Esquema Elétrico ETE",
+    url: EsquemaEletricoETE
   }
 ];
 
 const Documentations = () => {
   const [selectValue, setSelectValue] = useState('');
-  const [pdfUrl, setPDFUrl] = useState(emptyPDF);
+  const [pdfUrl, setPDFUrl] = useState(pdfList[0].url);
 
   const handlePdfView = () => { // removed selectValue from parameter since it was not being used
     

@@ -19,6 +19,8 @@ import MapLocation from '../../screens/mapLocation/MapLocation'
 import { RequisitionContext } from '../../context/RequisitionContext'
 import RevisionModal from '../../components/modal/RevisionModal'
 import Harmonicas from '../../screens/chartsScreens/Harmonicas'
+import { useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
 
 const DashBoard = () => {
   const [equip, setEquip] = useState({})
@@ -50,7 +52,7 @@ const DashBoard = () => {
   const [data, setData] = useState([])
   const [equipData, setEquipData] = useState([])
 
-
+const {isOpenDropDown , setIsOpenDropDown} = useContext(GlobalContext)
 
 
 
@@ -208,7 +210,6 @@ useEffect(()=>{
   }
 
 
-console.log(screenFlow)
   useEffect(() => {
     if (window.innerWidth < 768) {
       setIsMenuOpen(false)
@@ -218,7 +219,7 @@ console.log(screenFlow)
   return (
 
     <RequisitionContext.Provider value={preContext}>
-      <Container>
+      <Container  > 
         <SideBar
           selectedTime={selectedTime}
           setSelectedTime={setSelectedTime} 
@@ -236,7 +237,7 @@ console.log(screenFlow)
             handleModalClose={handleModalClose}
             handleModalOpen={handleModalOpen}
           />
-          <div className='body'>
+          <div className='body' onClick={()=>setIsOpenDropDown(false)}>
             {
               handleScreenFlow()
             }

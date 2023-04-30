@@ -62,9 +62,10 @@ export const NavLinks = styled.ul`
         margin-bottom:16px;
         border-bottom:1px solid white;
         .map-name{
-        font-size: 20px;
+        font-size:16px;
         font-weight: 500;
         color: #fff;
+        padding-bottom: 8px;
 
         :hover{
             font-weight: 600;
@@ -107,8 +108,9 @@ export const NavLinks = styled.ul`
 .link-name {
         font-size: 16px;
         font-weight: 400;
-        margin-left:16px;
+        margin-left:14px;
         color: #fff;
+        white-space: nowrap;
         :hover{
             font-weight: 600;
 

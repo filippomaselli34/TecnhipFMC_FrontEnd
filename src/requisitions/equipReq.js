@@ -52,7 +52,6 @@ export const handleRequisitionHarmonica = async (trafo) => {
     }
 try {
     const result = await axios.post(BASE_URL+"equipment",newReq)
-    console.log(result,"a")
     return result.data
 } catch (error) {
     console.log(error)

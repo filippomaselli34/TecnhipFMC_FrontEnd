@@ -55,7 +55,12 @@ const SideBar = (props) => {
     data, setData
 
   } = reqContext
-  const local = "Mapa"
+
+
+  const MapaName = "Mapa de Unidades"
+  const local = "Unidade Macaé-RJ"
+
+
   const { selectedTime, setSelectedTime } = props
   function newArr() {
     const arr = []
@@ -67,7 +72,6 @@ const SideBar = (props) => {
     return arr
   }
   const areaArr = newArr()
-console.log(areaArr)
   useEffect(() => {
 
 
@@ -111,11 +115,11 @@ console.log(areaArr)
       <div className="logo-details">
         <img src={logo} />
       </div>
-      <NavLinks localOverview={localOverview} eteView={eteView}>
+      <NavLinks localOverview={localOverview} eteView={idOpen===("ETE")}>
         <li className='map-div' onClick={() => setPageFlow("map")}>
 
           <Icon src={dashboard} />
-          <span className="map-name">{'Mapa de Unidades'}</span>
+          <span className="map-name">{MapaName}</span>
 
 
         </li>
@@ -131,12 +135,11 @@ console.log(areaArr)
         </li>
         <li>
           <div className='icon-link' onClick={() => {
-            setEteView(!eteView)
             handleClickArea("ETE")
           }}>
             <Icon src={factory} />
             <span className="link-name">ETE</span>
-            <ExptIcon src={eteView ? expandMore : expandLess} />
+            <ExptIcon  src={idOpen === ("ETE") ? expandMore : expandLess} />
           </div>
           <ul className='eteView-ul'>
           <li><TextMenu
@@ -144,11 +147,6 @@ console.log(areaArr)
                     isActive={screenFlow === 'Overview'}
                     >
                     Overview</TextMenu></li>
-                  <li><TextMenu
-                    onClick={()=>setScreenFlow("Alarmes")}
-                    isActive={screenFlow === 'Alarmes'}
-                    >
-                    Alarmes</TextMenu></li>
                   <li><TextMenu
                     onClick={()=>setScreenFlow("Gráficos")}
                     isActive={screenFlow === 'Gráficos'}
@@ -180,11 +178,6 @@ console.log(areaArr)
                     onClick={() => {
                       setScreenFlow("Overview")}}>
                     Overview</TextMenu></li>
-                  <li><TextMenu
-                    isActive={screenFlow === 'Alarmes'}
-                    onClick={() => {
-                      setScreenFlow("Alarmes")}}>
-                    Alarmes</TextMenu></li>
                   <li><TextMenu
                     isActive={screenFlow === 'Tensão Elétrica'}
                     onClick={() => {

@@ -26,6 +26,7 @@ input{
 }
 .btn-login{
    margin: 0 auto;
+
    width: 200px;
 }
 
@@ -42,11 +43,17 @@ input{
     /* text-decoration:underline; */
     cursor:pointer;
 }
+
 .esqueci-senha{
     margin:20px 0;
+    text-align:center;
     label{
         padding:8px 0;
     }
+}
+
+.form-group{
+    margin:20px 0;
 }
 
 

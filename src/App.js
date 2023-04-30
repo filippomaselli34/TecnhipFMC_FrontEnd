@@ -25,6 +25,8 @@ function App() {
   const [emailUser, setEmailUser] = useState("")
   const [idUser, setIdUser] = useState("")
   const [roleStr, setRoleStr] = useState("")
+  const [isOpenDropDown , setIsOpenDropDown] = useState(false)
+
 
   useEffect(() => {
  
@@ -94,7 +96,8 @@ function App() {
     idUser, setIdUser,
     emailUser, setEmailUser,    
     userName, setUserName,
-    autho
+    autho,
+    isOpenDropDown , setIsOpenDropDown
   };
   return (
     <>

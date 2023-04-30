@@ -35,7 +35,6 @@ export const Login = () => {
         }
        try {
         const response = await axios.post(BASE_URL+"users/login",body)
-        console.log(response.data)
         window.localStorage.setItem("token",response.data.token)
         setEmailUser(user)
         setRole(response.data.role)
@@ -82,12 +81,10 @@ export const Login = () => {
                     <img className='logo' src={logo} alt="Logo" />
                 </div>
                 <form onSubmit={handleForm}>
-                    <div className="form-group esqueci-senha">
-                        <label>Digite seu e-mail e você receberá um link para alterar sua senha.</label>
-                        <input type="text" value={user}  onChange={(e)=>setUser(e.target.value)} className="form-control" required />
+                    <div className="form-group esqueci-senha ">
+                        <label>Entre em contato com o Administrador do Sistema.</label>
                     </div>
                     <div className="flex">
-                        <button  className="btn btn-primary btn-login">Enviar</button>
 
                         <button onClick={()=>setFlow(0)} className="btn btn-light btn-login">Voltar</button>
                     </div>

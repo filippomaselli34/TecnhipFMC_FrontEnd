@@ -10,10 +10,9 @@ import { GlobalContext } from '../../context/GlobalContext'
 import FormUser from '../../components/formUser/FormUser'
 import FormNewUser from '../../components/formUser/FormNewUser'
 const Map = ({ setPageFlow }) => {
-    const [isOpenDropDown, setIsOpenDropDown] = useState(false)
     const [cardOpen, setCardOpen] = useState("")
     const context = useContext(GlobalContext)
-    const { userName, roleStr } = context
+    const { userName, roleStr, isOpenDropDown , setIsOpenDropDown } = context
     const [modalUser, setModalUser] = useState(0)
 
     const handleModalUser = () =>{
@@ -44,7 +43,7 @@ const Map = ({ setPageFlow }) => {
 
                 </div>
                 <div className='info-header'>
-                    <UserLogin onMouseLeave={() => setIsOpenDropDown(false)} onMouseEnter={() => setIsOpenDropDown(true)} >
+                    <UserLogin onClick={()=>setIsOpenDropDown(!isOpenDropDown)} >
                         <Icon src={userIcon} />
                         <div className='info-user'>
                             <p className='name'>{userName}</p>
@@ -55,7 +54,7 @@ const Map = ({ setPageFlow }) => {
                 <DropDownMenu context={context} setIsOpenDropDown={setIsOpenDropDown} isOpenDropDown={isOpenDropDown} setModalUser={setModalUser}/>
                 {handleModalUser(modalUser)}
             </ContainerHeader>
-            <div className='mapDiv' >
+            <div className='mapDiv' onClick={()=>setIsOpenDropDown(false)} >
 
                 <LocationIcon
                 tValue={"64%"}

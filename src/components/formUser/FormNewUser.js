@@ -27,7 +27,6 @@ const FormNewUser = ({setModalUser}) => {
     const [erro,setErro] = useState(1)
 
     const company = "TechnipFMC"
-    console.log(erro%3===0,"aki")
     const handleResetBtn = () => {
         setMatricula('')
         setName('')

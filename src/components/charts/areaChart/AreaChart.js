@@ -35,56 +35,97 @@ const AreaChart = ({ series }) => {
   const { selectedTime,
     setSelectedTime } = useContext(RequisitionContext)
   useEffect(() => {
-    setSelectedTime('5m')
+    // setSelectedTime('5m')
   }, [])
-
-
 
 
   const option = {
     chart: {
       height: 350,
-      type: 'area'
+      type: 'line'
     },
+    max: new Date(),
     dataLabels: {
       enabled: false
     },
-    stroke: {
-      curve: 'smooth'
-    },
-    xaxis: {
-      type: 'datetime',
-      // ticks:150
-      // categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-    },
-    tooltip: {
-      x: {
-        format: 'dd/MM/yy HH:mm'
+    zoom: {
+      enabled: true,
+      type: 'x',
+  
+      autoScaleYaxis: true,
+      zoomedArea: {
+        fill: {
+          color: '#90CAF9',
+          opacity: 0.4
+        },
+        stroke: {
+          color: '#0D47A1',
+          opacity: 0.4,
+          width: 1
+        }
       },
+      toolbar: {
+        autoSelected: 'zoom'
+      },
+      minWidth: 5 * 60 * 1000, // zoom mínimo de 5 minutos
+      // para limitar o zoom máximo, você pode adicionar a opção maxWidth
+    },  
+    pan: {
+      enabled: true,
+      type: 'xy'
+    },
+    stroke: {
+      curve: 'stepline'
+    },
+    yaxis: {
+      labels: {
+        formatter: function (value) {
+          return value + "V"
+        }
+      }
+
+      },
+      xaxis: {
+        type: 'datetime',
+        labels: {
+          formatter: function (value) {
+            return moment(value).format('DD/MM/YYYY HH:mm:ss');
+          }
+        },
+
+      },
+      tooltip: {
+        x: {
+          format: 'dd/MM/yy HH:mm:ss',
+         
+        },
+
+      }
     }
-  }
 
 
-  return (
+  return(
     <Container>
       <div className="title-chart">
         <p className="title-p"></p>
       </div>
       <ButtonTime setSelectedTime={setSelectedTime} />
-      {series && series.length > 0 ? (
-        <ApexChartsReact
-          options={option}
-          series={series}
-          type="area"
-          width={"100%"}
-          height={"700px"}
-        />
-      ) : (
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      )}
-    </Container>
+  {
+    series && series.length > 0 ? (
+      <ApexChartsReact
+        options={option}
+        series={series}
+        type="line"
+        width={"100%"}
+        height={"780px"}
+      />
+    ) : (
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  )
+  }
+    </Container >
   )
 }
 

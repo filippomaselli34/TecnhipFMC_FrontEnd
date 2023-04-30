@@ -13,7 +13,7 @@ const DropDownMenu = ({ isOpenDropDown, setIsOpenDropDown,setModalUser }) => {
     const { autho, userName, roleStr } = context
 
     return (
-        <Container isOpen={isOpenDropDown} onMouseEnter={() => setIsOpenDropDown(true)} onMouseLeave={() => setIsOpenDropDown(false)}>
+        <Container isOpen={isOpenDropDown} onMouseEnter={() => setIsOpenDropDown(true)}>
             <ul>
                 <li className='header-ul'>
                     <UserLogin >
