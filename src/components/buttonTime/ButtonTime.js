@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { RequisitionContext } from '../../context/RequisitionContext';
 import { RadioGroup } from './ButtonTime.styled';
 
 const ButtonTime = ({setSelectedTime}) => {
 
+  const {setDataInicial,setDataFinal} = useContext(RequisitionContext)
+
 
     const handleOnChange = (e) => {
+      setDataInicial(new Date().toISOString())
+      setDataFinal(new Date().toISOString())
         setSelectedTime(e.target.id);
       };
 

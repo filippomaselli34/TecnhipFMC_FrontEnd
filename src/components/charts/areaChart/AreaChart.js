@@ -8,6 +8,7 @@ import styled from "styled-components";
 import ButtonTime from "../../buttonTime/ButtonTime";
 import { getTimeInMilliseconds } from "../../../constants/getTimeInMilliseconds";
 import { RequisitionContext } from "../../../context/RequisitionContext";
+import DateInput from "../../dataInput/DateInput";
 
 const Container = styled.div`
 position:relative;
@@ -27,13 +28,13 @@ border-radius:8px;
 
 
 
-const AreaChart = ({ series ,eng="" }) => {
+const AreaChart = ({ series ,eng="",handleRequisition }) => {
 
   const [maxDate, setMaxDate] = useState(Date.now());
   const [newCircle, setNewCircle] = useState(false)
 
   const { selectedTime,
-    setSelectedTime } = useContext(RequisitionContext)
+    setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
   useEffect(() => {
     // setSelectedTime('5m')
   }, [])
@@ -87,6 +88,8 @@ const AreaChart = ({ series ,eng="" }) => {
       },
       xaxis: {
         type: 'datetime',
+        min: Date.parse(dataInicial)- Number(3*60*60*1000) - getTimeInMilliseconds(selectedTime),
+        max: Date.parse(dataFinal),
         labels: {
           formatter: function (value) {
             return moment(value).format('DD/MM/YYYY HH:mm:ss');
@@ -110,6 +113,7 @@ const AreaChart = ({ series ,eng="" }) => {
         <p className="title-p"></p>
       </div>
       <ButtonTime setSelectedTime={setSelectedTime} />
+      <DateInput handleRequisition={handleRequisition}/>
   {
     series && series.length > 0 ? (
       <ApexChartsReact
@@ -123,6 +127,7 @@ const AreaChart = ({ series ,eng="" }) => {
       <span class="sr-only">Sem dados para plotagem...</span>
   )
   }
+  
     </Container >
   )
 }

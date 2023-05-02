@@ -11,7 +11,7 @@ const ChartsEte = ({ type ,eng }) => {
     const [series, setSeries]= useState([])
     const [isLoading,setIsloading] = useState(false)
     const { selectedTime,
-        setSelectedTime, equip } = useContext(RequisitionContext)
+        setSelectedTime, dataInicial, setDataInicial, dataFinal, setDataFinal, equip } = useContext(RequisitionContext)
     
     useEffect(()=>{
         handleRequisition()
@@ -19,8 +19,8 @@ const ChartsEte = ({ type ,eng }) => {
     
         const handleRequisition = async () => {
             const newReq ={
-                initialDate: new Date(new Date().getTime()-getTimeInMilliseconds(selectedTime)),
-                finalDate: new Date()
+                initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)),
+                finalDate: new Date(dataFinal)
             }
         try {
             setIsloading(true)
@@ -39,7 +39,7 @@ const ChartsEte = ({ type ,eng }) => {
   return (
     <Container>
 
-    <AreaChart series={series} eng={eng}/>
+    <AreaChart series={series} eng={eng} handleRequisition={handleRequisition}/>
 
 </Container>
   )
