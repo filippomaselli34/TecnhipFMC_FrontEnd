@@ -21,26 +21,43 @@ display:flex;
 align-items: center;
 
 .value-p{
-    width:70%;
+    /* width:100%; */
+    width:70%;    
     margin:6px;
     border-radius:4px;
     font-size:16px;
     background-color:#F2F2F2;
     text-align:center;
+    color:${(({colorInside})=>colorInside)}
     
+}
+.value-p-text{
+    width:100%;    
+    margin:6px;
+    border-radius:4px;
+    font-size:16px;
+    background-color:#F2F2F2;
+    text-align:center;
+    color:${(({colorInside})=>colorInside)}
 }
 .eng-p{
     /* width:20%; */
-    margin-left:2px;
+    margin: 0 6px;
     font-size:16px;
 }
 
 }
 
+.name-p{
+    ${(({color})=>color==="white"&&"color:white")}
+}
+
 p{
     /* color:#787878; */
     font-weight:600;
-    margin:0;
-}
+    margin:0;}
+
+
+ 
 
 `

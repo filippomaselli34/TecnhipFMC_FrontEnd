@@ -15,4 +15,9 @@ margin-left:20px;
 }
 }
 
+.btn-info{
+    width:400px;
+    margin:20px auto;
+}
+
 `
