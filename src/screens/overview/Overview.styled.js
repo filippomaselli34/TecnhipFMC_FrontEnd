@@ -34,5 +34,11 @@ border-radius:8px;
           }
      }
 
+     .btn{
+          position:absolute;
+          right:16px;
+          top:16px;
+     }
+
 
 `

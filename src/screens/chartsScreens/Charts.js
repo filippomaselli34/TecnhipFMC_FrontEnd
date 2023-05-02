@@ -9,7 +9,7 @@ import { RequisitionContext } from '../../context/RequisitionContext'
 import { handleRequitisionCorrenteEletrica, handleRequitisionFatorDePotencia, handleRequitisionFrequencia, handleRequitisionPotenciaEletrica, handleRequitisionTensaoEletrica } from '../../requisitions/equipReq'
 import { Container } from './Charts.styled'
 
-const Charts = ({ type }) => {
+const Charts = ({ type ,eng }) => {
 const [series, setSeries]= useState([])
 const [isLoading,setIsloading] = useState(false)
 const { selectedTime,
@@ -44,7 +44,7 @@ useEffect(()=>{
     return (
         <Container>
 
-            <AreaChart series={series}
+            <AreaChart series={series} eng={eng}
  />
         </Container>
     )

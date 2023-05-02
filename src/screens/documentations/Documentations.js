@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import docPdf from "../../assets/documentos/documento1.pdf";
 import EsquemaEletricoETE from "../../assets/documentos/EsquemaEletricoETE.pdf";
+import cloretoFerrio from "../../assets/documentos/FISPQ Cloreto Férrico.pdf"
+import sodaCaustica from "../../assets/documentos/FISPQ SODA CÁUSTICA LÍQUIDA.pdf"
+import manualDeOperacao from "../../assets/documentos/Manual de Operação ETE e ETDI.pdf"
 import { ContainerDoc } from './Documentations.styled';
 
 //mockando lista de documentação
@@ -8,6 +10,18 @@ const pdfList = [
   {
     nameDisplay: "Esquema Elétrico ETE",
     url: EsquemaEletricoETE
+  },
+  {
+    nameDisplay: "Manual de Operação",
+    url: manualDeOperacao
+  },
+  {
+    nameDisplay: "FIPQ Soda Cáustica",
+    url: sodaCaustica
+  },
+  {
+    nameDisplay: "FISPQ Cloreto Férrico",
+    url: cloretoFerrio
   }
 ];
 

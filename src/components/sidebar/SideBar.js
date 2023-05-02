@@ -144,13 +144,13 @@ const SideBar = (props) => {
           </div>
           <ul className='eteView-ul'>
           <li><TextMenu
-                    onClick={()=>setScreenFlow("Overview")}
-                    isActive={screenFlow === 'Overview'}
+                    onClick={()=>setScreenFlow("Overview (ETE)")}
+                    isActive={screenFlow === 'Overview (ETE)'}
                     >
                     Overview</TextMenu></li>
                   <li><TextMenu
-                    onClick={()=>setScreenFlow("Gráficos")}
-                    isActive={screenFlow === 'Gráficos'}
+                    onClick={()=>setScreenFlow("ETE - Gráficos")}
+                    isActive={screenFlow === 'ETE - Gráficos'}
                     >
                     Gráficos</TextMenu></li>
                   <li><TextMenu

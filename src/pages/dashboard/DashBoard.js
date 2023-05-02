@@ -11,6 +11,9 @@ import { RequisitionContext } from '../../context/RequisitionContext'
 import Harmonicas from '../../screens/chartsScreens/Harmonicas'
 import { useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
+import ChartsEte from '../../screens/chartsScreens/ChartsEte'
+import OverviewETE from '../../screens/overview/OverviewETE'
+import ChartsETETimeline from '../../screens/chartsScreens/ChartETETimeLine'
 
 const DashBoard = () => {
   const [equip, setEquip] = useState({})
@@ -105,33 +108,43 @@ useEffect(()=>{
 },[screenFlow])
 
   const handleScreenFlow = () => {
+    console.log(screenFlow)
     switch (screenFlow) {
       case "Overview":
         return <Overview />
+        break;
+      case "Overview (ETE)":
+        return <OverviewETE />
+        break;
+      case "Overview - Timeline":
+        return <ChartsETETimeline />
         break;
       case "Alarmes":
         return <AlarmsList />
         break;
       case "Tensão Elétrica":
-        return <Charts type={screenFlow} />
+        return <Charts type={screenFlow} eng={"V"}/>
         break;
       case "Corrente Elétrica":
-        return <Charts type={screenFlow} />
+        return <Charts type={screenFlow} eng={"A"} />
         break;
       case "Potência Elétrica":
-        return <Charts type={screenFlow} />
+        return <Charts type={screenFlow}  />
         break;
       case "Frequência":
-        return <Charts type={screenFlow} />
+        return <Charts type={screenFlow} eng={"Hz"} />
         break;
       case "Fator de Potência":
-        return <Charts type={screenFlow} />
+        return <Charts type={screenFlow}  />
         break;
       case "Harmônicas":
         return <Harmonicas />
         break;
       case "Gráficos":
         return <Charts type={screenFlow} />
+        break;
+      case "ETE - Gráficos":
+        return <ChartsEte type={screenFlow} eng={"m³"}/>
         break;
       case "Documentação":
         return <Documentations />

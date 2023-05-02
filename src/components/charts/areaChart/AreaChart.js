@@ -27,7 +27,7 @@ border-radius:8px;
 
 
 
-const AreaChart = ({ series }) => {
+const AreaChart = ({ series ,eng="" }) => {
 
   const [maxDate, setMaxDate] = useState(Date.now());
   const [newCircle, setNewCircle] = useState(false)
@@ -80,7 +80,7 @@ const AreaChart = ({ series }) => {
     yaxis: {
       labels: {
         formatter: function (value) {
-          return value + "V"
+          return value + eng
         }
       }
 
