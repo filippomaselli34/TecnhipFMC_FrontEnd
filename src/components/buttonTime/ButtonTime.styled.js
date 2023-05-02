@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const RadioGroup = styled.div`
 position:absolute;
-left:500px;
+left:33%;
 top:8px;
 z-index:105;
 

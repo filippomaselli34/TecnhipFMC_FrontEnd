@@ -13,7 +13,7 @@ const Charts = ({ type ,eng }) => {
 const [series, setSeries]= useState([])
 const [isLoading,setIsloading] = useState(false)
 const { selectedTime,
-    setSelectedTime, equip } = useContext(RequisitionContext)
+    setSelectedTime, dataInicial, setDataInicial, dataFinal, setDataFinal, equip } = useContext(RequisitionContext)
 
 useEffect(()=>{
     handleRequisition()
@@ -23,8 +23,8 @@ useEffect(()=>{
         const newReq ={
             trafo:equip.equipDB.toLowerCase(),
             type,
-            initialDate: new Date(new Date().getTime()-getTimeInMilliseconds(selectedTime)),
-            finalDate: new Date()
+            initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)),
+            finalDate: new Date(dataFinal)
         }
     try {
         setIsloading(true)
@@ -44,7 +44,7 @@ useEffect(()=>{
     return (
         <Container>
 
-            <AreaChart series={series} eng={eng}
+            <AreaChart series={series} eng={eng} handleRequisition={handleRequisition}
  />
         </Container>
     )

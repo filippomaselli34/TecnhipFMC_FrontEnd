@@ -5,11 +5,12 @@ import { BASE_URL } from "../../../constants/BASE_URL";
 import { getTimeInMilliseconds } from "../../../constants/getTimeInMilliseconds";
 import { RequisitionContext } from "../../../context/RequisitionContext";
 import ButtonTime from "../../buttonTime/ButtonTime";
+import DateInput from "../../dataInput/DateInput";
 import { Container, RadioGroup } from "./TimelineChart.Styled";
 
 const LineChart = (props) => {
   const { arrDesligado, arrCarga, arrFalha, arrManutencao} = props;
-  const {data,setData, selectedTime, setSelectedTime} = useContext(RequisitionContext);
+  const {data,setData, selectedTime, setSelectedTime,setDataInicial,setDataFinal,dataInicial, dataFinal} = useContext(RequisitionContext);
   const [isLoading,setIsLoading] = useState(false)
   let now = new Date();
 
@@ -19,9 +20,10 @@ const LineChart = (props) => {
 
     const handleRequisition = async () => {
         const newReq ={
-            initialDate: new Date(new Date().getTime()-getTimeInMilliseconds(selectedTime)),
-            finalDate: new Date()
+          initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)).toISOString(),
+          finalDate: new Date(dataFinal).toISOString()
         }
+        console.log(newReq)
     try {
         setIsLoading(true)
         const result = await axios.post(BASE_URL+"equipment/digital",newReq)
@@ -56,7 +58,8 @@ const LineChart = (props) => {
     },
     xaxis: {
       type: "datetime",
-      min: Date.parse(now)- Number(3*60*60*1000) - getTimeInMilliseconds(selectedTime),
+      min: Date.parse(dataInicial)- Number(3*60*60*1000) - getTimeInMilliseconds(selectedTime),
+      max: Date.parse(dataFinal),
     },
     plotOptions: {
       bar: {
@@ -75,12 +78,13 @@ const LineChart = (props) => {
         <p className="title-p">Linha do Tempo</p>
       </div>
       <ButtonTime setSelectedTime={setSelectedTime} />
+      <DateInput handleRequisition={handleRequisition}/>
       <ApexCharts
         options={options}
         series={series}
         type="rangeBar"
         width={"100%"}
-        height={"280px"}
+        height={"480px"}
       />
     </Container>
   );

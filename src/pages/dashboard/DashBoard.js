@@ -44,8 +44,10 @@ const DashBoard = () => {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false)
   const [data, setData] = useState([])
   const [equipData, setEquipData] = useState([])
+  const [dataInicial, setDataInicial] = useState(new Date().toISOString())
+  const [dataFinal, setDataFinal] = useState(new Date().toISOString())
 
-const {isOpenDropDown , setIsOpenDropDown} = useContext(GlobalContext)
+  const { isOpenDropDown, setIsOpenDropDown } = useContext(GlobalContext)
 
 
 
@@ -57,8 +59,8 @@ const {isOpenDropDown , setIsOpenDropDown} = useContext(GlobalContext)
 
   }
 
-  const handleSeries = (arrPD, arrTD, arrTOA,arrTOD) => {
-  
+  const handleSeries = (arrPD, arrTD, arrTOA, arrTOD) => {
+
 
 
   }
@@ -90,7 +92,9 @@ const {isOpenDropDown , setIsOpenDropDown} = useContext(GlobalContext)
     viewFlow, setViewFlow,
     isNotificationOpen, setIsNotificationOpen,
     equipData, setEquipData,
-    data, setData
+    data, setData,
+    dataInicial, setDataInicial,
+    dataFinal, setDataFinal
 
 
   }
@@ -103,9 +107,9 @@ const {isOpenDropDown , setIsOpenDropDown} = useContext(GlobalContext)
   //     handleSeries()
 
   // },[selectedTime])
-useEffect(()=>{
-  setSelectedTime("5m")
-},[screenFlow])
+  useEffect(() => {
+    setSelectedTime("5m")
+  }, [screenFlow])
 
   const handleScreenFlow = () => {
     console.log(screenFlow)
@@ -123,19 +127,19 @@ useEffect(()=>{
         return <AlarmsList />
         break;
       case "Tensão Elétrica":
-        return <Charts type={screenFlow} eng={"V"}/>
+        return <Charts type={screenFlow} eng={"V"} />
         break;
       case "Corrente Elétrica":
         return <Charts type={screenFlow} eng={"A"} />
         break;
       case "Potência Elétrica":
-        return <Charts type={screenFlow}  />
+        return <Charts type={screenFlow} />
         break;
       case "Frequência":
         return <Charts type={screenFlow} eng={"Hz"} />
         break;
       case "Fator de Potência":
-        return <Charts type={screenFlow}  />
+        return <Charts type={screenFlow} />
         break;
       case "Harmônicas":
         return <Harmonicas />
@@ -144,7 +148,7 @@ useEffect(()=>{
         return <Charts type={screenFlow} />
         break;
       case "ETE - Gráficos":
-        return <ChartsEte type={screenFlow} eng={"m³"}/>
+        return <ChartsEte type={screenFlow} eng={"m³"} />
         break;
       case "Documentação":
         return <Documentations />
@@ -166,13 +170,13 @@ useEffect(()=>{
   return (
 
     <RequisitionContext.Provider value={preContext}>
-      <Container  > 
+      <Container  >
         <SideBar
           selectedTime={selectedTime}
-          setSelectedTime={setSelectedTime} 
+          setSelectedTime={setSelectedTime}
           data={data}
           setData={setData}
-          />
+        />
         <div className='main'>
           <Header
             equip={equip}
@@ -184,7 +188,7 @@ useEffect(()=>{
             handleModalClose={handleModalClose}
             handleModalOpen={handleModalOpen}
           />
-          <div className='body' onClick={()=>setIsOpenDropDown(false)}>
+          <div className='body' onClick={() => setIsOpenDropDown(false)}>
             {
               handleScreenFlow()
             }
