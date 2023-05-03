@@ -11,6 +11,8 @@ import { GlobalContext } from '../../context/GlobalContext'
 import { RequisitionContext } from '../../context/RequisitionContext'
 import FormUser from '../formUser/FormUser'
 import FormNewUser from '../formUser/FormNewUser'
+import axios from 'axios'
+import { headers } from '../../constants/headers'
 
 const Header = (props) => {
     const {
@@ -26,7 +28,10 @@ const Header = (props) => {
         const context = useContext(GlobalContext)
         const {isNotificationOpen, setIsNotificationOpen} = useContext(RequisitionContext)
 
-        const {userName, roleStr, isOpenDropDown , setIsOpenDropDown} = context
+        const {userName, roleStr} = context
+
+
+
     //recebe props para abir e fechar o meu lateral, assim como a localização atual 
     const [notificationColor, setNotificationColor] = useState(false)
     const [notIcon,setNotIcon] = useState(notifications)
@@ -34,6 +39,7 @@ const Header = (props) => {
     const [newReq, setNewReq] = useState(false)
     const [firstLoad, setFirstLoad] = useState(false)
     const [modalUser, setModalUser] = useState(0)
+    const [isOpenDropDown , setIsOpenDropDown] = useState(false)
 
     const handleClick = () =>{
         setIsNotificationOpen(!isNotificationOpen)
@@ -75,23 +81,16 @@ const Header = (props) => {
 
 
     const handleEvents = async (modalUser) => {
-        // setIsloading(true);
-        // try {
-        //     const response = await fetch(BASE_URL + ":3003/log", {
-        //         method: "GET",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //             "Authorization": window.localStorage.getItem("token")
-        //         }
-        //     });
-        //     const data = await response.json();
-        //     setAllEvents(data .sort((a,b)=>a.inicialDate>b.inicialDate?-1:1))
+        setIsloading(true);
+        try {
+            const response = await axios.get(BASE_URL+"log",headers)
 
-        // } catch (error) {
-        //     console.error(error);
-        // } finally {
-        //     setIsloading(false);
-        // }
+            setAllEvents(response.data .sort((a,b)=>a.inicialDate>b.inicialDate?-1:1))
+
+        } catch (error) {
+            setIsloading(false);
+            console.error(error);
+        } 
 
     }
 
@@ -123,6 +122,7 @@ type:"-",
 userId:"-",
 value:"-"
 }
+const arr= [nullObj]
 
     return (
         <>
@@ -156,7 +156,7 @@ value:"-"
                     <Icon acti={true}  src={listAlarm.length>0?notificationsActive:notifications} onClick={handleClick}/>
                     </div>
                 </IconsGroup>
-                <UserLogin onClick={()=>setIsOpenDropDown(!isOpenDropDown)} >
+                <UserLogin onClick={()=>setIsOpenDropDown(!isOpenDropDown)} onMouseLeave={()=>setIsOpenDropDown(false)} >
                     <Icon src={userIcon} />
                     <div className='info-user'>
                         <p className='name'>{userName}</p>
@@ -170,7 +170,7 @@ value:"-"
         </ContainerHeader>
         <AlarmTable notifications={isNotificationOpen}>
             <div className='tabela-alarm' >
-           <TableAlarms arrAlamrs={listAlarm.length>0?listAlarm:[nullObj]} handleEvents={handleEvents}/>
+           <TableAlarms arrAlamrs={listAlarm.length>0?listAlarm:arr} handleEvents={handleEvents}/>
             </div>
 
 

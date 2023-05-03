@@ -44,10 +44,12 @@ const DashBoard = () => {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false)
   const [data, setData] = useState([])
   const [equipData, setEquipData] = useState([])
+
+  
   const [dataInicial, setDataInicial] = useState(new Date().toISOString())
   const [dataFinal, setDataFinal] = useState(new Date().toISOString())
 
-  const { isOpenDropDown, setIsOpenDropDown } = useContext(GlobalContext)
+  // const { isOpenDropDown, setIsOpenDropDown } = useContext(GlobalContext)
 
 
 
@@ -112,7 +114,6 @@ const DashBoard = () => {
   }, [screenFlow])
 
   const handleScreenFlow = () => {
-    console.log(screenFlow)
     switch (screenFlow) {
       case "Overview":
         return <Overview />
@@ -120,7 +121,7 @@ const DashBoard = () => {
       case "Overview (ETE)":
         return <OverviewETE />
         break;
-      case "Overview - Timeline":
+      case "Histórico":
         return <ChartsETETimeline />
         break;
       case "Alarmes":
@@ -166,6 +167,7 @@ const DashBoard = () => {
       setIsMenuOpen(false)
     }
   }, [])
+  
 
   return (
 
@@ -188,7 +190,7 @@ const DashBoard = () => {
             handleModalClose={handleModalClose}
             handleModalOpen={handleModalOpen}
           />
-          <div className='body' onClick={() => setIsOpenDropDown(false)}>
+          <div className='body'>
             {
               handleScreenFlow()
             }

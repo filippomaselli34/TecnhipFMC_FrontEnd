@@ -38,6 +38,7 @@ border-radius:8px;
           position:absolute;
           right:16px;
           top:16px;
+          background-color:#475793;
      }
 
 

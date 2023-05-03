@@ -12,8 +12,9 @@ import FormNewUser from '../../components/formUser/FormNewUser'
 const Map = ({ setPageFlow }) => {
     const [cardOpen, setCardOpen] = useState("")
     const context = useContext(GlobalContext)
-    const { userName, roleStr, isOpenDropDown , setIsOpenDropDown } = context
+    const { userName, roleStr} = context
     const [modalUser, setModalUser] = useState(0)
+    const [isOpenDropDown , setIsOpenDropDown] = useState(false)
 
     const handleModalUser = () =>{
         switch (modalUser) {
@@ -43,7 +44,7 @@ const Map = ({ setPageFlow }) => {
 
                 </div>
                 <div className='info-header'>
-                    <UserLogin onClick={()=>setIsOpenDropDown(!isOpenDropDown)} >
+                    <UserLogin onClick={()=>setIsOpenDropDown(true)} >
                         <Icon src={userIcon} />
                         <div className='info-user'>
                             <p className='name'>{userName}</p>

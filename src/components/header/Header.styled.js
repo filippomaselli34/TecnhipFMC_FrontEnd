@@ -86,7 +86,7 @@ export const Icon = styled.img`
 export const AlarmTable = styled.div`
 display:${({ notifications }) => notifications ? "block" : "none"};
 background-color:white;
-max-height:10rem;
+max-height:9.1rem;
 margin:20px;
 margin-bottom:0;
 overflow-y:scroll;

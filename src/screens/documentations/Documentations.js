@@ -16,7 +16,7 @@ const pdfList = [
     url: manualDeOperacao
   },
   {
-    nameDisplay: "FIPQ Soda Cáustica",
+    nameDisplay: "FISPQ Soda Cáustica",
     url: sodaCaustica
   },
   {

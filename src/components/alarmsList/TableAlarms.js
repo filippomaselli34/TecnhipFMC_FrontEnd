@@ -3,28 +3,23 @@ import { BASE_URL } from '../../constants/BASE_URL'
 import { handleDate } from '../../constants/handleDate'
 import { Line, Table } from './TableAlarms.styled'
 import listEquip from "../../equipmentInField/equipMock.json"
+import axios from 'axios'
+import { headers } from '../../constants/headers'
 
 const TableAlarms = ({arrAlamrs,handleEvents}) => {
   const [isLoading,setIsloading] = useState(false)
 
   const handleClickEvent = async (req) => {
-    // setIsloading(true);
-    // try {
-    //     const response = await fetch(BASE_URL + ":3003/log", {
-    //         method: "PUT",
-    //         body: JSON.stringify(req),
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Authorization": window.localStorage.getItem("token")
-    //         }
-    //     });
-    //     const data = await response.json();
+    setIsloading(true);
+    try {
+      const response = await axios.put(BASE_URL+"log", req, headers)
+      console.log(response)
 
-    // } catch (error) {
-    //     console.error(error);
-    // } finally {
-    //     setIsloading(false);
-    // }
+    } catch (error) {
+        console.error(error);
+    } finally {
+        setIsloading(false);
+    }
 
 }
 
@@ -40,7 +35,7 @@ const TableAlarms = ({arrAlamrs,handleEvents}) => {
 
   return (
     <>
-     <Table>      
+     <Table onSelectStart={false}>      
                 <thead className='header-table'>
                     <th className='first' >Área</th>
                     <th >Equipamento</th>
@@ -64,7 +59,7 @@ const TableAlarms = ({arrAlamrs,handleEvents}) => {
                               <td className='first'> {alarm.area.replace("a","A")}</td>
                               <td> {alarm.equip.replace("c","Compressor ")}</td>
                               <td> {alarm.description}</td>
-                              <td> {alarm.type==="temp"?alarm.value.toFixed(2)+"ºC":alarm.type==="pressao"?alarm.value.toFixed(2)+" bar":alarm.value+"hrs"}</td>
+                              <td> {alarm.type==="temp"?alarm.value.toFixed(2)+"ºC":alarm.type==="pressao"?alarm.value.toFixed(2)+" bar":alarm.value+""}</td>
                               <td> {alarm.inicialDate==="-"?"-":handleDate(alarm.inicialDate)}</td>
                               <td className='last'> {alarm.finalDate?handleDate(alarm.finalDate):"-" }</td>
                                

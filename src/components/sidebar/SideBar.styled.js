@@ -32,7 +32,6 @@ export const Sidebar = styled.div`
 
 `
 export const NavLinks = styled.ul`
-    height: 100%;
     padding: 12px 4px;
 
 
@@ -108,7 +107,7 @@ export const NavLinks = styled.ul`
 .link-name {
         font-size: 16px;
         font-weight: 400;
-        margin-left:14px;
+        margin-left:0px;
         color: #fff;
         white-space: nowrap;
         :hover{

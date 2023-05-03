@@ -65,7 +65,7 @@ const DisplayETE = ({
 
                 </div> :
                 <div className='display-wrapper'>
-                    <p className='value-p-text'>{text}</p>
+                    <p className='value-p-text'>{!name.includes("Bomba")?text:text.replace("o","a")}</p>
                 </div>}
         </Contanier>
     )

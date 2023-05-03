@@ -19,6 +19,8 @@ border-radius:8px;
         font-size:20px
     }
 }
-        
+    .div-flex{
+        display:flex;
+    }    
 
 `
