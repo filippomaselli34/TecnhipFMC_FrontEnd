@@ -42,6 +42,7 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
 
   const option = {
     chart: {
+      connectNulls: false,
       height: 350,
       type: 'line'
     },

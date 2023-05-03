@@ -168,7 +168,7 @@ const OverviewETE = (props) => {
                                 <DisplayValue top={"760px"} left={left} name={"Frequência Total"} value={result.freqencia[`${equip.preTag.toLowerCase()}_freqencia`]} eng={"Hz"} />
                                 <DisplayValue top={"820px"} left={left} name={"Fator de Potência Total"} value={result.tensao[`${equip.preTag.toLowerCase()}_fator_potencia_total`]} eng={"FP"} /> */}
 
-                            <button onClick={()=>setScreenFlow("Overview - Timeline")} className='btn btn-secondary'>Timeline</button>
+                            <button onClick={()=>setScreenFlow("Histórico")} className='btn btn-secondary'>Histórico</button>
                 </Container>
            
             }

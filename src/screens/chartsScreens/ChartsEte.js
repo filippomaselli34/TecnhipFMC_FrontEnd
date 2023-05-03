@@ -33,7 +33,6 @@ const ChartsEte = ({ type ,eng }) => {
         }
         
         }
-        console.log(series)
     
     
   return (

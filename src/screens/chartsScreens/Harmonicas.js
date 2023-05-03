@@ -1,24 +1,32 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ColumnChart from '../../components/charts/columnChart/ColumnChart'
 import { BASE_URL } from '../../constants/BASE_URL'
+import { getTimeInMilliseconds } from '../../constants/getTimeInMilliseconds'
+import { RequisitionContext } from '../../context/RequisitionContext'
 import { handleRequisitionHarmonica } from '../../requisitions/equipReq'
 import { Container } from './Charts.styled'
 
 const Harmonicas = () => {
     const [data,setData]= useState()
     const[isLoading, setIsloading]= useState(false)
+    const { selectedTime,
+        setSelectedTime, dataInicial, setDataInicial, dataFinal, setDataFinal, equip } = useContext(RequisitionContext)
 
 useEffect(()=>{
-    handleRequisitionHarmonica("trafo01")
+    handleRequisitionHarmonica()
+    setSelectedTime('5m')
 
 },[])
- const handleRequisitionHarmonica = async (trafo) => {
+useEffect(()=>{
+    handleRequisitionHarmonica()
+},[selectedTime])
+ const handleRequisitionHarmonica = async () => {
     const newReq ={
-        trafo,
+        trafo:equip.equipDB.toLowerCase(),
         type:"Harmônica",
-        initialDate:"2023-04-01 09:46:06.601522",
-        finalDate:new Date()
+        initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)),
+        finalDate: new Date(dataFinal)
     }
 
 try {

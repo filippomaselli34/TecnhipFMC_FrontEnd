@@ -23,7 +23,6 @@ const LineChart = (props) => {
           initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)).toISOString(),
           finalDate: new Date(dataFinal).toISOString()
         }
-        console.log(newReq)
     try {
         setIsLoading(true)
         const result = await axios.post(BASE_URL+"equipment/digital",newReq)
@@ -37,10 +36,45 @@ const LineChart = (props) => {
     
     }
 
+console.log(data)
+
 
   const series = [
     {
-      data
+      data:[
+        {
+          x:"Motor Misturador 01"
+        },
+        {
+          x:"Motor Misturador 02"
+        },
+        {
+          x:"Válvula Descarga 01"
+        },
+        {
+          x:"Válvula Descarga 02"
+        },
+        {
+          x:"Bomba Elevatória 02"
+        },
+        {
+          x:"Bomba Elevatória 01"
+        },
+        {
+          x:"Motor Aeração 02"
+        },
+        {
+          x:"Motor Aeração 01"
+        },
+      
+      {
+        x:"Cloreto Férrico Nível Baixo"
+      },
+      {
+        x:"Soda Cáustica Nível Baixo"
+      },
+        ...data
+      ]
 
       
     }
@@ -53,7 +87,45 @@ const LineChart = (props) => {
       x: {
         show: true,
         format: "dd/MM/yy - HH:mm:ss",
-        formatter: undefined
+        // formatter:function( name, serie ) {
+        //   // obter as informações da série atual
+        // console.log(name,"a")
+        // console.log(serie,"s")
+          
+        //   // formatar as datas
+        //   const date1 = new Date(serie.start+3*60*60*1000);
+        //   const date2 = new Date(serie.end+3*60*60*1000);
+        //   const formattedDate1 = date1.toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        //   const formattedDate2 = date2.toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+          
+        //   // retornar o texto formatado como tooltip
+        //   return `
+        //   ${name}\n
+        //   ${formattedDate1}\n
+        //   ${formattedDate2}`;
+       
+      },
+      custom: function({ seriesIndex, dataPointIndex, w }) {
+        // obter as informações da série atual
+        console.log({ seriesIndex, dataPointIndex, w })
+        const seriesName = w.config.series[seriesIndex].data[dataPointIndex].x;
+        const seriesData = w.config.series[seriesIndex].data[dataPointIndex].y;
+      
+        
+        // formatar as datas
+        const date1 = new Date(seriesData[0]+3*60*60*1000);
+        const date2 = new Date(seriesData[1]+3*60*60*1000);
+        const formattedDate1 = date1.toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        const formattedDate2 = date2.toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        
+        // retornar o texto formatado como tooltip
+        return( 
+        `<div style="padding:6px">
+        <p style="margin:0"><strong> ${seriesName} </strong></p>
+        <p style="margin:0">${formattedDate1}</p>
+        <p style="margin:0"> ${formattedDate2}</p>
+        </div> `);
+         
       }
     },
     xaxis: {

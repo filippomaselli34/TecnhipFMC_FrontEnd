@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const Table = styled.table`
+user-select:none;
 width:100%;
 
 background-color:white;
 border-collapse:separate;
-
+padding:0 4px;
 /* margin:auto 8px; */
 color:white;
 border-spacing:0 6px ;
@@ -26,18 +27,18 @@ th{
 
 }
 .first{
-    border-top-left-radius:8px;
-    border-bottom-left-radius:8px;
+    border-top-left-radius:6px;
+    border-bottom-left-radius:6px;
     border:none;
 }
 .last{
-    border-top-right-radius:8px;
-    border-bottom-right-radius:8px;
+    border-top-right-radius:6px;
+    border-bottom-right-radius:6px;
 }
 
 `
 export const Line = styled.tbody`
-    border-radius:8px;
+    border-radius:4px;
     background-color:#d8e2f3;
     cursor:pointer;
     /* margin:2px 0; */

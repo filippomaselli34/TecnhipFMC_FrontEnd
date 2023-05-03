@@ -109,7 +109,6 @@ const SideBar = (props) => {
     }
   }
 
-  console.log(equip)
 
   return (
     <Sidebar isMenuOpen={isMenuOpen}>

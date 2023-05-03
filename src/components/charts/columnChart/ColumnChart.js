@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import ApexChartsReact from "react-apexcharts";
 import moment from 'moment';
 import styled from "styled-components";
+import ButtonTime from "../../buttonTime/ButtonTime";
+import { RequisitionContext } from "../../../context/RequisitionContext";
 
 const Container = styled.div`
 position:relative;
@@ -20,6 +22,9 @@ border-radius:8px;
 `
 
 const ColumnChart = (data) => {
+  
+  const { selectedTime,
+    setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
     const options = {
         
         chart: {
@@ -63,7 +68,7 @@ const ColumnChart = (data) => {
       yaxis: {
         labels: {
           formatter: (val) => {
-            return val  + '%'
+            return val.toFixed(2)  + '%'
           }
         }
       },
@@ -95,6 +100,7 @@ const ColumnChart = (data) => {
     <div className="title-chart">
         <p className="title-p"></p>
     </div>
+    <ButtonTime setSelectedTime={setSelectedTime} />
     {series && series.length > 0 ? (
         <ApexChartsReact
             options={options}

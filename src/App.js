@@ -25,7 +25,7 @@ function App() {
   const [emailUser, setEmailUser] = useState("")
   const [idUser, setIdUser] = useState("")
   const [roleStr, setRoleStr] = useState("")
-  const [isOpenDropDown , setIsOpenDropDown] = useState(false)
+ 
 
 
   useEffect(() => {
@@ -72,7 +72,6 @@ function App() {
   }
   const reqConfirmLog = async () => {
     try {
-      console.log(headers)
       const response = await axios.get(BASE_URL + "users/confirm", headers) 
       window.localStorage.setItem("token", response.data.token)
       setRole(response.data.role)
@@ -97,7 +96,7 @@ function App() {
     emailUser, setEmailUser,    
     userName, setUserName,
     autho,
-    isOpenDropDown , setIsOpenDropDown
+
   };
   return (
     <>
