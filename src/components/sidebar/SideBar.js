@@ -15,7 +15,6 @@ import { GlobalContext } from '../../context/GlobalContext'
 
 const SideBar = (props) => {
   //rece como props um set para selecionar um equipamento especifico e se o menu é para estar em display
-  const [idOpen, setIdOpen] = useState(null)
   const { pageFlow, setPageFlow } = useContext(GlobalContext)
   const [IdEquipOpen, setIdEquipOpen] = useState(false)
   const [localOverview, setLocalOverview] = useState(false)
@@ -32,6 +31,7 @@ const SideBar = (props) => {
 
   const {
     equip, setEquip,
+    idOpen, setIdOpen,
     isMenuOpen,
     screenFlow,
     setScreenFlow,
@@ -46,7 +46,7 @@ const SideBar = (props) => {
     arrTempDescarga, setArrTempDescarga,
     arrTempDescAntes, setArrTempDescAntes,
     arrTempDescDepois, setArrTempDescDepois,
-
+    handleClickArea,
     isLoading, setIsloading,
     equipData, setEquipData,
     handleSeries,
@@ -98,16 +98,7 @@ const SideBar = (props) => {
 
     }
  
-  const handleClickArea = (area) => {
-    const newEquip =  equipments.find((equip)=>equip.area===area)
-    if (idOpen === area) {
-      setIdOpen(null)
-    } else {
-      setIdOpen(area)
-      setEquip(newEquip)
 
-    }
-  }
 
 
   return (

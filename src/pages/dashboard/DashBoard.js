@@ -11,9 +11,11 @@ import { RequisitionContext } from '../../context/RequisitionContext'
 import Harmonicas from '../../screens/chartsScreens/Harmonicas'
 import { useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
+import equipments from "../../equipmentInField/equipMock.json"
 import ChartsEte from '../../screens/chartsScreens/ChartsEte'
 import OverviewETE from '../../screens/overview/OverviewETE'
 import ChartsETETimeline from '../../screens/chartsScreens/ChartETETimeLine'
+import { handleDataNowCalendar } from '../../constants/handleDate'
 
 const DashBoard = () => {
   const [equip, setEquip] = useState({})
@@ -44,10 +46,11 @@ const DashBoard = () => {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false)
   const [data, setData] = useState([])
   const [equipData, setEquipData] = useState([])
+  const [idOpen, setIdOpen]=useState(false)
 
   
-  const [dataInicial, setDataInicial] = useState(new Date().toISOString())
-  const [dataFinal, setDataFinal] = useState(new Date().toISOString())
+  const [dataInicial, setDataInicial] = useState(handleDataNowCalendar())
+  const [dataFinal, setDataFinal] = useState(handleDataNowCalendar())
 
   // const { isOpenDropDown, setIsOpenDropDown } = useContext(GlobalContext)
 
@@ -66,10 +69,21 @@ const DashBoard = () => {
 
 
   }
+  const handleClickArea = (area) => {
+    const newEquip =  equipments.find((equip)=>equip.area===area)
+    if (idOpen === area) {
+      setIdOpen(null)
+    } else {
+      setIdOpen(area)
+      setEquip(newEquip)
+
+    }
+  }
 
 
   const preContext = {
     equip, setEquip,
+    idOpen, setIdOpen,
     isMenuOpen,
     screenFlow,
     setScreenFlow,
@@ -96,8 +110,8 @@ const DashBoard = () => {
     equipData, setEquipData,
     data, setData,
     dataInicial, setDataInicial,
-    dataFinal, setDataFinal
-
+    dataFinal, setDataFinal,
+    handleClickArea
 
   }
   const handleModalClose = () => {
@@ -167,6 +181,8 @@ const DashBoard = () => {
       setIsMenuOpen(false)
     }
   }, [])
+
+
   
 
   return (

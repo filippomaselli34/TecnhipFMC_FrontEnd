@@ -11,17 +11,17 @@
     {
        
         "area":"Transformador 01",
-        "equipamento":"Subestação 01",
+        "equipamento":"Transformador 01",
         "equipDB":"Trafo01",
-        "preTag":"TR01",
+        "preTag":"tr01",
         "isActive":true
     },
     {
        
         "area":"Transformador 02",
-        "equipamento":"Subestação 01",
+        "equipamento":"Transformador 02",
         "equipDB":"Trafo02",
-        "preTag":"TR02",
+        "preTag":"tr01",
         "isActive":true
     }
 ]

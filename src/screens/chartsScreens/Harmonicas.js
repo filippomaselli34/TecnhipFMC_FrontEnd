@@ -45,7 +45,7 @@ try {
     return (
         <Container>
             {data?.correnteA &&
-                <ColumnChart data={data}/>
+                <ColumnChart data={data} handleRequisitionHarmonica={handleRequisitionHarmonica}/>
             }
         </Container>
     )

@@ -4,6 +4,7 @@ import moment from 'moment';
 import styled from "styled-components";
 import ButtonTime from "../../buttonTime/ButtonTime";
 import { RequisitionContext } from "../../../context/RequisitionContext";
+import DateInput from "../../dataInput/DateInput";
 
 const Container = styled.div`
 position:relative;
@@ -21,7 +22,7 @@ border-radius:8px;
 
 `
 
-const ColumnChart = (data) => {
+const ColumnChart = ({data,handleRequisitionHarmonica}) => {
   
   const { selectedTime,
     setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
@@ -68,7 +69,7 @@ const ColumnChart = (data) => {
       yaxis: {
         labels: {
           formatter: (val) => {
-            return val.toFixed(2)  + '%'
+            return val + '%'
           }
         }
       },
@@ -82,15 +83,15 @@ const ColumnChart = (data) => {
       const series = [
         {
           name: 'Corrente A',
-          data: data.data.correnteA
+          data: data.correnteA
         },
         {
           name: 'Corrente B',
-          data: data.data.correnteB
+          data: data.correnteB
         },
         {
           name: 'Corrente C',
-          data: data.data.correnteC
+          data: data.correnteC
         }
       ]
 
@@ -101,6 +102,7 @@ const ColumnChart = (data) => {
         <p className="title-p"></p>
     </div>
     <ButtonTime setSelectedTime={setSelectedTime} />
+    <DateInput handleRequisition={handleRequisitionHarmonica}/>
     {series && series.length > 0 ? (
         <ApexChartsReact
             options={options}

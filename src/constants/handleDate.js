@@ -24,3 +24,12 @@ export const handleDate = (dateValue) =>{
     const formattedDate = new Intl.DateTimeFormat('pt-BR', options).format(date);
     return formattedDate
 }
+
+export const handleDataNowCalendar = ()=>{
+  const data = new Date(); // Criar um objeto Date a partir da string em formato ISO
+  const ano = data.getFullYear(); // Obtém o ano da data
+  const mes = ("0" + (data.getMonth() + 1)).slice(-2); // Obtém o mês da data (lembrando que o mês começa em zero)
+  const dia = ("0" + data.getDate()).slice(-2); // Obtém o dia do mês da data
+
+  return `${ano}-${mes}-${dia}`; // Retorna a data formatada como uma string no formato yyyy-mm-dd
+}

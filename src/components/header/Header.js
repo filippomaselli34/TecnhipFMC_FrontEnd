@@ -144,8 +144,7 @@ const arr= [nullObj]
             <p className='title-view-p'>   
             {equip.equipamento &&
             equip.equipamento}  
-            {equip.equipamento && 
-            "("+equip.equipDB + ")"}  {screenFlow && " - " +screenFlow}</p>}
+             {screenFlow && " - " +screenFlow}</p>}
             </>
 }
             </div>
