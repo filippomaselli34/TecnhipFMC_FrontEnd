@@ -34,7 +34,6 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
     setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
 
 
-  console.log(series)
 
   const option = {
     chart: {

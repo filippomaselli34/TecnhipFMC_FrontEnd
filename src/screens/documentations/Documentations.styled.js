@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ContainerDoc = styled.div`
-/* background-color:red; */
 display:flex;
 flex-direction:column;
 margin:20px 20px;
@@ -18,8 +17,6 @@ border-radius:8px;
     .title{
     }
     .select-doc{
-        /* justify-self:flex-end; */
-        /* align-self:flex-end; */
         margin-right:auto;
         margin-bottom:4px;
         button{
@@ -34,11 +31,8 @@ border-radius:8px;
 
 }
 .doc-view{
-/* background-color:green; */
-/* overflow-y:scroll; */
 width:100%;
 height:940px;
-/* height:100vh; */
 margin-right:20px;
 }
 `

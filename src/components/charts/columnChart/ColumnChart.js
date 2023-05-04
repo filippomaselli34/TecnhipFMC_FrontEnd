@@ -76,7 +76,6 @@ const ColumnChart = ({data,handleRequisitionHarmonica}) => {
         horizontalAlign: 'left'
       }
       };
-      console.log(data)
 
       const series = [
         {

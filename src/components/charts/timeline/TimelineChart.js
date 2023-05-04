@@ -25,7 +25,6 @@ const LineChart = () => {
         setIsLoading(true)
         const result = await axios.post(BASE_URL+"equipment/digital",newReq)
         setData(result.data)
-        console.log(result.data)
         setIsLoading(false)
     } catch (error) {
         setIsLoading(false)
@@ -34,7 +33,6 @@ const LineChart = () => {
     
     }
 
-console.log(data)
 
 
   const series = [
@@ -84,28 +82,10 @@ console.log(data)
       enabled: true,
       x: {
         show: true,
-        format: "dd/MM/yy - HH:mm:ss",
-        // formatter:function( name, serie ) {
-        //   // obter as informações da série atual
-        // console.log(name,"a")
-        // console.log(serie,"s")
-          
-        //   // formatar as datas
-        //   const date1 = new Date(serie.start+3*60*60*1000);
-        //   const date2 = new Date(serie.end+3*60*60*1000);
-        //   const formattedDate1 = date1.toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        //   const formattedDate2 = date2.toLocaleString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-          
-        //   // retornar o texto formatado como tooltip
-        //   return `
-        //   ${name}\n
-        //   ${formattedDate1}\n
-        //   ${formattedDate2}`;
-       
+        format: "dd/MM/yy - HH:mm:ss",       
       },
       custom: function({ seriesIndex, dataPointIndex, w }) {
         // obter as informações da série atual
-        console.log({ seriesIndex, dataPointIndex, w })
         const seriesName = w.config.series[seriesIndex].data[dataPointIndex].x;
         const seriesData = w.config.series[seriesIndex].data[dataPointIndex].y;
       
