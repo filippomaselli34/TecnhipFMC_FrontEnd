@@ -7,7 +7,8 @@ import iconLoc from "../../assets/icons/locationIcon.png"
 const MiniCardLocation = ({ client,
     cardOpen,
     setCardOpen,
-    setPageFlow}) => {
+    setPageFlow,
+    }) => {
 
 
 

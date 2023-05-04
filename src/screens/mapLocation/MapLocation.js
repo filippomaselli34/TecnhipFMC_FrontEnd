@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import map3d from "../../assets/images/fmc-01b.jpg"
 import compIcon from "../../assets/icons/events.png"
-import { CompGroup, Container, ContainerList, ContainerMap, Line, Table } from './MapLocation.styled'
+import { CompGroup, Container, ContainerList, ContainerMap, Line, Table,InfoEquipIcon, IconEquip } from './MapLocation.styled'
 import equips from "../../equipmentInField/equipMock.json"
 import { async } from 'q'
 import { BASE_URL } from '../../constants/BASE_URL'
 import IconStatus from '../../components/iconStatus/IconStatus'
 import { RequisitionContext } from '../../context/RequisitionContext'
+import infoEquip from "../../assets/icons/status_info.png"
+import InfoCardEquip from '../../components/infoCardIncon/InfoCardEquip'
 
 const MapLocation = ({isMenuOpen}) => {
     const [firstLoad, setFirstLoad] = useState(false)
@@ -37,12 +39,15 @@ const MapLocation = ({isMenuOpen}) => {
 
             {viewFlow === 0 ?
                 <ContainerMap isNotificationOpen={isNotificationOpen}>
-                    {firstLoad &&
-                        <>
-                            <IconStatus equip={equipData[1]} isActive={true} tV={"10%"} lV={"23%"} name={equipData[1].equipment.name} />
-                            <IconStatus equip={equipData[0]} isActive={true} tV={"11%"} lV={"19.5%"} name={equipData[0].equipment.name} />
-                        </>
-                    }
+                    <IconEquip top={"32%"} left={"0%"}  >
+                    <InfoCardEquip direction="d" btnValue="ETE"
+                    titile="Estação de Tratamento de Efluentes" />
+                    </IconEquip>
+                    <IconEquip top={"60%"} left={"82%"}  >
+                    <InfoCardEquip direction="e" btn2={true} btnValue="Trafo01" btn2Value="Trafo02"
+                    titile="Substação01" />
+                    </IconEquip>
+
                     <CompGroup>
                         {/* <img className='icon' src={compIcon} onClick={() => { setViewFlow(1) }} /> */}
 

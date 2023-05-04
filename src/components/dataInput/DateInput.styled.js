@@ -8,6 +8,7 @@ top:12px;
 left:40%;
 input{
     border:none;
+    cursor:pointer;
 }
 p{
     margin:0

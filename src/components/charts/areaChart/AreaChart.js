@@ -39,6 +39,7 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
     // setSelectedTime('5m')
   }, [])
 
+  console.log(series)
 
   const option = {
     chart: {
@@ -77,7 +78,12 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
       type: 'xy'
     },
     stroke: {
-      curve: 'stepline'
+      show:true,
+      curve: 'smooth',
+      dashArray: 0,
+      widith:0.5,
+      lineCap: 'square',
+
     },
     yaxis: {
       labels: {

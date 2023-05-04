@@ -124,8 +124,13 @@ color:${({ active, ack }) => {
     }
 }
 
+`
 
-
-
+export const IconEquip = styled.div`
+position:absolute;
+left:${({left})=>left};
+top:${({top})=>top};
+width:50px;
+z-index:1600;
 
 `
