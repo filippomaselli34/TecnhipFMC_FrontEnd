@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import ApexChartsReact from "react-apexcharts";
-import moment from 'moment';
 import styled from "styled-components";
 import ButtonTime from "../../buttonTime/ButtonTime";
 import { RequisitionContext } from "../../../context/RequisitionContext";
@@ -24,8 +23,7 @@ border-radius:8px;
 
 const ColumnChart = ({data,handleRequisitionHarmonica}) => {
   
-  const { selectedTime,
-    setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
+  const { setSelectedTime  } = useContext(RequisitionContext)
     const options = {
         
         chart: {

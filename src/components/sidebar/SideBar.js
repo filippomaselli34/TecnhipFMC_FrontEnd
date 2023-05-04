@@ -2,57 +2,31 @@ import React, { useContext, useEffect, useState } from 'react'
 import logo from "../../assets/logos/FTI_BIG.D.png"
 import dashboard from "../../assets/dashboard.svg"
 import factory from "../../assets/factory.svg"
-import machine from "../../assets/machine.svg"
 import expandMore from "../../assets/expand_more.svg"
 import expandLess from "../../assets/expand_less.svg"
 import equipments from "../../equipmentInField/equipMock.json"
 import { ExptIcon, Icon, NavLinks, Sidebar, SubMenu, TextMenu, ThirdMenu } from './SideBar.styled'
-import { BASE_URL } from '../../constants/BASE_URL'
 import { RequisitionContext } from '../../context/RequisitionContext'
-import { handleDate } from '../../constants/handleDate'
-import { getGap, getTimeInMilliseconds } from '../../constants/getTimeInMilliseconds'
 import { GlobalContext } from '../../context/GlobalContext'
 
 const SideBar = (props) => {
   //rece como props um set para selecionar um equipamento especifico e se o menu é para estar em display
   const { pageFlow, setPageFlow } = useContext(GlobalContext)
-  const [IdEquipOpen, setIdEquipOpen] = useState(false)
   const [localOverview, setLocalOverview] = useState(false)
-  const [eteView, setEteView] = useState(false)
 
-  const [manutencao, setManutencao] = useState()
-  const [revisao, setRevisao] = useState()
-  const [showFlow, setShowFlow] = useState(false)
 
-  const [newReq, setNewReq] = useState(false)
 
 
   const reqContext = useContext(RequisitionContext)
 
   const {
-    equip, setEquip,
-    idOpen, setIdOpen,
+    idOpen,
     isMenuOpen,
     screenFlow,
     setScreenFlow,
-    arrDesligado, setArrDesligado,
-    arrCarga, setArrCarga,
-    arrFalha, setArrFalha,
-    arrManutencao, setArrManutencao,
-    horimeter, setHorimeter,
-    analogicData, setAnalogicData,
-    equipment, setEquipment,
-    arrPressaoDescarga, setArrPressaoDescarga,
-    arrTempDescarga, setArrTempDescarga,
-    arrTempDescAntes, setArrTempDescAntes,
-    arrTempDescDepois, setArrTempDescDepois,
     handleClickArea,
-    isLoading, setIsloading,
-    equipData, setEquipData,
-    handleSeries,
-    firstLoad, setFirstLoad,
-    viewFlow, setViewFlow,
-    data, setData
+
+    setViewFlow,
 
   } = reqContext
 
@@ -61,7 +35,6 @@ const SideBar = (props) => {
   const local = "Unidade Macaé-RJ"
 
 
-  const { selectedTime, setSelectedTime } = props
   function newArr() {
     const arr = []
     for (let equip of equipments) {
@@ -72,32 +45,12 @@ const SideBar = (props) => {
     return arr
   }
   const areaArr = newArr()
+
   useEffect(() => {
 
 
 
   }, []);
-
-  useEffect(() => {
-
-  }, [selectedTime])
-
-  useEffect(() => {
-
-  }, [firstLoad])
-
-
-  const handleRequisitionAnalogic = async (equip) => {
- 
-
-  }
-
-
-
-  const handleRequisitionDigital = async (equip) => {
-
-    }
- 
 
 
 

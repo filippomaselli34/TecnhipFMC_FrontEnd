@@ -1,27 +1,10 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import trafo01Img from "../../assets/images/Trafo01_Overview.png"
 import trafo02Img from "../../assets/images/Trafo02_Overview.png"
-import Card from '../../components/card/Card'
-import powerOFF from "../../assets/icons/TurnOFF.png"
-import powerON from "../../assets/icons/TurnON.png"
-import cargaIcon from "../../assets/icons/carga-icon.png"
-import maintenanceIcon from "../../assets/icons/maintenance-icon.png"
-import pressureIcon from "../../assets/icons/icon_pressao.png"
-import tempIcon from "../../assets/icons/icon_temperatura.png"
-import countHourIcon from "../../assets/icons/icon_horas.png"
-import buttonManut from "../../assets/icons/botao_manut.png"
-import statusInfo from "../../assets/icons/status_info.png"
-import listaDeEquipamentos from "../../equipmentInField/equipMock.json"
-
-import { Container, ContainerCard, ContainerCardManut, ContainerFlex, StatusCard, StatusWrapper, ViewMach } from './Overview.styled'
-import TimelineChart from '../../components/charts/timeline/TimelineChart'
-import { handleDate } from '../../constants/handleDate'
-import RevisionModal from '../../components/modal/RevisionModal'
+import { Container} from './Overview.styled'
 import { BASE_URL } from '../../constants/BASE_URL'
 import { RequisitionContext } from '../../context/RequisitionContext'
-import { GlobalContext } from '../../context/GlobalContext'
 import axios from 'axios'
-import { handleRequisitionHarmonica } from '../../requisitions/equipReq'
 import DisplayValue from '../../components/display/DisplayValue'
 const Overview = (props) => {
     const [isLoading, setIsloading] = useState(false)

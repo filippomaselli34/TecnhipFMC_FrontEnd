@@ -6,13 +6,11 @@ import { getTimeInMilliseconds } from "../../../constants/getTimeInMilliseconds"
 import { RequisitionContext } from "../../../context/RequisitionContext";
 import ButtonTime from "../../buttonTime/ButtonTime";
 import DateInput from "../../dataInput/DateInput";
-import { Container, RadioGroup } from "./TimelineChart.Styled";
+import { Container} from "./TimelineChart.Styled";
 
-const LineChart = (props) => {
-  const { arrDesligado, arrCarga, arrFalha, arrManutencao} = props;
-  const {data,setData, selectedTime, setSelectedTime,setDataInicial,setDataFinal,dataInicial, dataFinal} = useContext(RequisitionContext);
+const LineChart = () => {
+  const {data,setData, selectedTime, setSelectedTime,dataInicial, dataFinal} = useContext(RequisitionContext);
   const [isLoading,setIsLoading] = useState(false)
-  let now = new Date();
 
   useEffect(()=>{
     handleRequisition()

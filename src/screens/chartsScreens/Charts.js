@@ -6,14 +6,16 @@ import AreaChart from '../../components/charts/areaChart/AreaChart'
 import { BASE_URL } from '../../constants/BASE_URL'
 import { getTimeInMilliseconds } from '../../constants/getTimeInMilliseconds'
 import { RequisitionContext } from '../../context/RequisitionContext'
-import { handleRequitisionCorrenteEletrica, handleRequitisionFatorDePotencia, handleRequitisionFrequencia, handleRequitisionPotenciaEletrica, handleRequitisionTensaoEletrica } from '../../requisitions/equipReq'
 import { Container } from './Charts.styled'
 
 const Charts = ({ type ,eng }) => {
 const [series, setSeries]= useState([])
 const [isLoading,setIsloading] = useState(false)
-const { selectedTime,
-    setSelectedTime, dataInicial, setDataInicial, dataFinal, setDataFinal, equip } = useContext(RequisitionContext)
+const { 
+    selectedTime,
+    dataInicial,
+    dataFinal,  
+    equip } = useContext(RequisitionContext)
 
 useEffect(()=>{
     handleRequisition()

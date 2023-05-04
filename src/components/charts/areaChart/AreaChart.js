@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import ApexChartsReact from "react-apexcharts";
 import moment from 'moment';
-// import { Container } from "./TimelineChart.Styled";
 
 
 import styled from "styled-components";
@@ -30,14 +29,10 @@ border-radius:8px;
 
 const AreaChart = ({ series ,eng="",handleRequisition }) => {
 
-  const [maxDate, setMaxDate] = useState(Date.now());
-  const [newCircle, setNewCircle] = useState(false)
 
   const { selectedTime,
     setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
-  useEffect(() => {
-    // setSelectedTime('5m')
-  }, [])
+
 
   console.log(series)
 

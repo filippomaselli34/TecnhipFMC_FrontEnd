@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import AreaChart from '../../components/charts/areaChart/AreaChart'
-import LineChart from '../../components/charts/timeline/TimelineChart'
 import { BASE_URL } from '../../constants/BASE_URL'
 import { getTimeInMilliseconds } from '../../constants/getTimeInMilliseconds'
 import { RequisitionContext } from '../../context/RequisitionContext'
@@ -10,8 +9,11 @@ import { Container } from './Charts.styled'
 const ChartsEte = ({ type ,eng }) => {
     const [series, setSeries]= useState([])
     const [isLoading,setIsloading] = useState(false)
-    const { selectedTime,
-        setSelectedTime, dataInicial, setDataInicial, dataFinal, setDataFinal, equip } = useContext(RequisitionContext)
+    const { 
+        selectedTime,
+        dataInicial,  
+        dataFinal
+         } = useContext(RequisitionContext)
     
     useEffect(()=>{
         handleRequisition()

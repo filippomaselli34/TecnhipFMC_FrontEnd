@@ -4,14 +4,13 @@ import ColumnChart from '../../components/charts/columnChart/ColumnChart'
 import { BASE_URL } from '../../constants/BASE_URL'
 import { getTimeInMilliseconds } from '../../constants/getTimeInMilliseconds'
 import { RequisitionContext } from '../../context/RequisitionContext'
-import { handleRequisitionHarmonica } from '../../requisitions/equipReq'
 import { Container } from './Charts.styled'
 
 const Harmonicas = () => {
     const [data,setData]= useState()
     const[isLoading, setIsloading]= useState(false)
     const { selectedTime,
-        setSelectedTime, dataInicial, setDataInicial, dataFinal, setDataFinal, equip } = useContext(RequisitionContext)
+        setSelectedTime, dataInicial,  dataFinal,  equip } = useContext(RequisitionContext)
 
 useEffect(()=>{
     handleRequisitionHarmonica()

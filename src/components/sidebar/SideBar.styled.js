@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
 export const Sidebar = styled.div`
-    /* position: fixed; */
-    /* top: 0; */
-    /* left: 0; */
     display:${({isMenuOpen})=>isMenuOpen?"block":"none"};   
-    /* min-height: 1020px; */
     width: 300px;
     background: rgba(32,44,70,1);
     min-height:100vh;
@@ -46,10 +42,8 @@ export const NavLinks = styled.ul`
         gap:4px;
         .icon-link {
             display: flex;
-            /* justify-content: space-between; */
             align-items: center;
             height: 32px;
-            /* padding: 20px 0; */
             cursor:pointer;
 
         }
@@ -57,7 +51,6 @@ export const NavLinks = styled.ul`
     }
     .map-div{
         display:flex;
-        /* justify-content:center; */
         margin-bottom:16px;
         border-bottom:1px solid white;
         .map-name{
@@ -118,7 +111,6 @@ export const NavLinks = styled.ul`
     }
   
     li:hover{
-        /* background: #272e38; */
         cursor:pointer;
     }
 
@@ -132,7 +124,6 @@ export const SubMenu = styled.ul`
     padding-left: 8px;
     cursor:pointer;
     opacity:${({isActive})=>isActive?"100%":"50%"};
-    /* display: none; */
     li {
     position: relative;
     list-style: none;
@@ -159,7 +150,6 @@ export const ThirdMenu = styled.ul`
     height: 100%;
     margin-left: -30px;
     padding-left: 60px;
-    /* background: #272e38; */
     display: ${({disp})=>disp?"block":"none"};
     li {
         position: relative;

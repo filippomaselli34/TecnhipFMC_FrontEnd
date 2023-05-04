@@ -20,9 +20,6 @@ const Header = (props) => {
         isMenuOpen,
         screenFlow,
         equip,
-        modalIsOpen,setModalIsOpen,
-        handleModalClose,
-        handleModalOpen,
         allEvents, setAllEvents} = props
         
         const context = useContext(GlobalContext)
@@ -32,9 +29,6 @@ const Header = (props) => {
 
 
 
-    //recebe props para abir e fechar o meu lateral, assim como a localização atual 
-    const [notificationColor, setNotificationColor] = useState(false)
-    const [notIcon,setNotIcon] = useState(notifications)
     const [isLoading, setIsloading] = useState(false)
     const [newReq, setNewReq] = useState(false)
     const [firstLoad, setFirstLoad] = useState(false)

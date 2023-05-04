@@ -9,8 +9,6 @@ import Documentations from '../../screens/documentations/Documentations'
 import MapLocation from '../../screens/mapLocation/MapLocation'
 import { RequisitionContext } from '../../context/RequisitionContext'
 import Harmonicas from '../../screens/chartsScreens/Harmonicas'
-import { useContext } from 'react'
-import { GlobalContext } from '../../context/GlobalContext'
 import equipments from "../../equipmentInField/equipMock.json"
 import ChartsEte from '../../screens/chartsScreens/ChartsEte'
 import OverviewETE from '../../screens/overview/OverviewETE'
@@ -36,11 +34,8 @@ const DashBoard = () => {
   const [arrTempDescDepois, setArrTempDescDepois] = useState([])
   const [variable, setvariable] = useState("Pressão Descarga")
   const [firstLoad, setFirstLoad] = useState(false)
-  const [series, setSeries] = useState([])
-  const [varTable, setVarTable] = useState([])
   const [allEvents, setAllEvents] = useState([])
   const [selectedTime, setSelectedTime] = useState("5m");
-  const [numb, setNumb] = useState(0);
   const [isLoading, setIsloading] = useState(false)
   const [viewFlow, setViewFlow] = useState(0)
   const [isNotificationOpen, setIsNotificationOpen] = useState(false)
@@ -52,7 +47,6 @@ const DashBoard = () => {
   const [dataInicial, setDataInicial] = useState(handleDataNowCalendar())
   const [dataFinal, setDataFinal] = useState(handleDataNowCalendar())
 
-  // const { isOpenDropDown, setIsOpenDropDown } = useContext(GlobalContext)
 
 
 
@@ -60,15 +54,7 @@ const DashBoard = () => {
     setModalIsOpen(true)
   }
 
-  const handleFlowVaribles = (variable) => {
 
-  }
-
-  const handleSeries = (arrPD, arrTD, arrTOA, arrTOD) => {
-
-
-
-  }
   const handleClickArea = (area) => {
     const newEquip =  equipments.find((equip)=>equip.area===area)
     if (idOpen === area) {
@@ -102,8 +88,6 @@ const DashBoard = () => {
     variable, setvariable,
     selectedTime, setSelectedTime,
     firstLoad, setFirstLoad,
-    handleFlowVaribles,
-    handleSeries,
     isLoading, setIsloading,
     viewFlow, setViewFlow,
     isNotificationOpen, setIsNotificationOpen,
@@ -118,11 +102,7 @@ const DashBoard = () => {
     setModalIsOpen(false)
   }
 
-  // useEffect(() => {
 
-  //     handleSeries()
-
-  // },[selectedTime])
   useEffect(() => {
     setSelectedTime("5m")
   }, [screenFlow])
