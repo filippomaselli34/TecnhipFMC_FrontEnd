@@ -3,11 +3,9 @@ import { GlobalContext } from '../../context/GlobalContext'
 import logo from "../../assets/logos/FTI_BIG.png"
 import { ContainerLogin } from './Login.Styled'
 import { BASE_URL } from '../../constants/BASE_URL'
-import users from "../../equipmentInField/user.json"
 import axios from 'axios'
 
 export const Login = () => {
-    // const context = useContext(GlobalContext)
     const [user,setUser] = useState('')
     const [pass, setPass] = useState('')
     const [flow,setFlow] =useState(0)
