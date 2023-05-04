@@ -16,7 +16,7 @@ import {
 } from './FormUser.styled'
 
 const FormNewUser = ({ setModalUser }) => {
-    const { roleStr, idUser, emailUser, userName, autho } =
+    const { roleStr, idUser,  userName, autho } =
         useContext(GlobalContext)
     const [matricula, setMatricula] = useState('')
     const [name, setName] = useState('')

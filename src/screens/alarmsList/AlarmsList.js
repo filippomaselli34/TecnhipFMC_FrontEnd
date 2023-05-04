@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
-import TableAlarms from '../../components/alarmsList/TableAlarms'
 import { Container, Line, Table } from './AlarmsList.styled'
 import { handleDate } from '../../constants/handleDate'
-import listEquip from "../../equipmentInField/equipMock.json"
 import { GlobalContext } from '../../context/GlobalContext'
 
 const AlarmsList = ({ equip, allEvents=[] }) => {
@@ -17,20 +15,20 @@ const AlarmsList = ({ equip, allEvents=[] }) => {
   })
 
   const handleDescription = (alarm) => {
-    // if (alarm.type === "log") {
-    //   return `O usuario ${userName}.${alarm.description}`
-    // } else if (alarm.type === "temp") {
+    if (alarm.type === "log") {
+      return `O usuario ${userName}.${alarm.description}`
+    } else if (alarm.type === "temp") {
 
-    //   return `${alarm.description} -  ${alarm.value}ºC`
-    // } else if (alarm.type === "pressao") {
+      return `${alarm.description} -  ${alarm.value}ºC`
+    } else if (alarm.type === "pressao") {
 
-    //   return `${alarm.description} -  ${alarm.value} bar`
-    // } else if (alarm.type === "rev") {
+      return `${alarm.description} -  ${alarm.value} bar`
+    } else if (alarm.type === "rev") {
 
-    //   return `${alarm.description} -  ${alarm.value}hrs`
-    // } else {
-    //   return alarm.description
-    // }
+      return `${alarm.description} -  ${alarm.value}hrs`
+    } else {
+      return alarm.description
+    }
   }
 
   const nullObj = {

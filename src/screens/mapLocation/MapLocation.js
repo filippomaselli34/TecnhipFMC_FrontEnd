@@ -1,39 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext,  useState } from 'react'
 import map3d from "../../assets/images/fmc-01b.jpg"
-import compIcon from "../../assets/icons/events.png"
-import { CompGroup, Container, ContainerList, ContainerMap, Line, Table,InfoEquipIcon, IconEquip } from './MapLocation.styled'
+import { CompGroup, Container, ContainerList, ContainerMap, Line, Table, IconEquip } from './MapLocation.styled'
 import equips from "../../equipmentInField/equipMock.json"
-import { async } from 'q'
-import { BASE_URL } from '../../constants/BASE_URL'
-import IconStatus from '../../components/iconStatus/IconStatus'
 import { RequisitionContext } from '../../context/RequisitionContext'
-import infoEquip from "../../assets/icons/status_info.png"
 import InfoCardEquip from '../../components/infoCardIncon/InfoCardEquip'
 
 const MapLocation = ({isMenuOpen}) => {
     const [firstLoad, setFirstLoad] = useState(false)
-    const {viewFlow,isNotificationOpen,equipData, setEquipData,setEquipment} = useContext(RequisitionContext)
-    useEffect(() => {
-        requisitionDataAllequip()
+    const {
+        viewFlow,
+        isNotificationOpen,
+        equipData} = useContext(RequisitionContext)
 
-    }, [])
 
-    const requisitionDataAllequip = async () => {
-        // try {
-        //     const response = await fetch(BASE_URL + ":3003/equipment/all/data", {
-        //         method: "GET",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //     });
-        //     const data = await response.json()
-        //     setEquipData(data)
-        //     setFirstLoad(true)
-
-        // } catch (error) {
-        //     console.log(error)
-        // }
-    }
     return (
         <Container isMenuOpen={isMenuOpen} >
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { BASE_URL } from '../../constants/BASE_URL'
 import { handleDate } from '../../constants/handleDate'
 import { Line, Table } from './TableAlarms.styled'
-import listEquip from "../../equipmentInField/equipMock.json"
 import axios from 'axios'
 import { headers } from '../../constants/headers'
 

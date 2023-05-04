@@ -82,6 +82,9 @@ function App() {
       changeRoleName(response.data.role)
     } catch (error) {
       setIsLogged(false)
+      if(error.code==="ERR_NETWORK"){
+        window.alert("Verificar a coneção com o servidor")
+      }
       console.log(error)
     }
   }

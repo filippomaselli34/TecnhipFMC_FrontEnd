@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react'
 import DropDownMenu from '../../components/dropDown/DropDownMenu'
-import Header from '../../components/header/Header'
 import userIcon from "../../assets/account-icon.svg"
 import { Container, ContainerHeader, Icon, LocationIcon, UserLogin } from './Map.styled'
 import map from "../../assets/images/Map.png"
-import locationIcon from "../../assets/icons/locationIcon.png"
 import MiniCardLocation from '../../components/miniCardLocation/MiniCardLocation'
 import { GlobalContext } from '../../context/GlobalContext'
 import FormUser from '../../components/formUser/FormUser'
@@ -38,7 +36,6 @@ const Map = ({ setPageFlow }) => {
 
             <ContainerHeader>
                 <div className='title-view'>
-                    {/* <RevisionModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} handleModalClose={handleModalClose} handleModalOpen={handleModalOpen}  /> */}
 
                     <p className='title-view-p'> Mapa de Unidades</p>
 

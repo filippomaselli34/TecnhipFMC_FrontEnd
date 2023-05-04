@@ -3,6 +3,7 @@ import bgImage from "../../assets/images/Fundo_Login.png"
 
 export const ContainerLogin = styled.div`
     background: url(${bgImage});
+     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
