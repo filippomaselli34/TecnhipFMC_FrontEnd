@@ -57,20 +57,20 @@ const Overview = (props) => {
 
                             <Container>
                                 <img className='img-bg' src={equipmento} />
-                                <DisplayValue top={"100px"} left={left} name={"Tensão Fase A"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_fase_a`]} eng={"V"} />
-                                <DisplayValue top={"160px"} left={left} name={"Tensão Fase B"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_fase_b`]}eng={"V"} />
-                                <DisplayValue top={"220px"} left={left} name={"Tensão Fase C"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_fase_c`]} eng={"V"} />
+                                <DisplayValue top={"10vh"} left={left} name={"Tensão Fase A"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_fase_a`]} eng={"V"} />
+                                <DisplayValue top={"16vh"} left={left} name={"Tensão Fase B"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_fase_b`]}eng={"V"} />
+                                <DisplayValue top={"22vh"} left={left} name={"Tensão Fase C"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_fase_c`]} eng={"V"} />
 
-                                <DisplayValue top={"320px"} left={left} name={"Tensão Fase A-B"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_linha_ab`]} eng={"V"} />
-                                <DisplayValue top={"380px"} left={left} name={"Tensão Fase B-C"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_linha_bc`]} eng={"V"} />
-                                <DisplayValue top={"440px"} left={left} name={"Tensão Fase C-A"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_linha_ca`]} eng={"V"} />
+                                <DisplayValue top={"32vh"} left={left} name={"Tensão Fase A-B"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_linha_ab`]} eng={"V"} />
+                                <DisplayValue top={"38vh"} left={left} name={"Tensão Fase B-C"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_linha_bc`]} eng={"V"} />
+                                <DisplayValue top={"44vh"} left={left} name={"Tensão Fase C-A"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_linha_ca`]} eng={"V"} />
 
-                                <DisplayValue top={"540px"} left={left} name={"Corrent Fase A"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_a`]} eng={"A"} />
-                                <DisplayValue top={"600px"} left={left} name={"Corrent Fase B"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_b`]} eng={"A"} />
-                                <DisplayValue top={"660px"} left={left} name={"Corrent Fase C"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_c`]} eng={"A"} />
+                                <DisplayValue top={"54vh"} left={left} name={"Corrent Fase A"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_a`]} eng={"A"} />
+                                <DisplayValue top={"60vh"} left={left} name={"Corrent Fase B"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_b`]} eng={"A"} />
+                                <DisplayValue top={"66vh"} left={left} name={"Corrent Fase C"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_c`]} eng={"A"} />
 
-                                <DisplayValue top={"760px"} left={left} name={"Frequência Total"} value={result.freqencia[`${equip.preTag.toLowerCase()}_frequencia`]} eng={"Hz"} />
-                                <DisplayValue top={"820px"} left={left} name={"Fator de Potência Total"} value={result.tensao[`${equip.preTag.toLowerCase()}_fator_potencia_total`]} eng={"FP"} />
+                                <DisplayValue top={"76vh"} left={left} name={"Frequência Total"} value={result.freqencia[`${equip.preTag.toLowerCase()}_frequencia`]} eng={"Hz"} />
+                                <DisplayValue top={"82vh"} left={left} name={"Fator de Potência Total"} value={result.tensao[`${equip.preTag.toLowerCase()}_fator_potencia_total`]} eng={"FP"} />
 
 
                             </Container>

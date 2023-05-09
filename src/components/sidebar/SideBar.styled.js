@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const Sidebar = styled.div`
     display:${({isMenuOpen})=>isMenuOpen?"block":"none"};   
-    width: 300px;
+    width: 16vw;
     background: rgba(32,44,70,1);
     min-height:100vh;
     .logo-details {
-        height: 60px;
+        height: 6vh;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -73,7 +73,7 @@ export const NavLinks = styled.ul`
     .localOverview-p{
         color:white;
         font-weight:300;
-        padding-left:50px;
+        padding-left:2vw;
         :hover{
             font-weight:500;
         }
@@ -86,7 +86,7 @@ export const NavLinks = styled.ul`
     .eteView-p{
         color:white;
         font-weight:300;
-        padding-left:50px;
+        padding-left:2vw;
         :hover{
             font-weight:500;
         }
@@ -148,13 +148,15 @@ export const SubMenu = styled.ul`
 `
 export const ThirdMenu = styled.ul`
     height: 100%;
-    margin-left: -30px;
-    padding-left: 60px;
+    margin-left: -1.5vw;
+    padding-left: 3vw;
     display: ${({disp})=>disp?"block":"none"};
     li {
         position: relative;
         list-style: none;
     font-size:14px;
+    margin-bottom: 2px;
+
 
 
 
@@ -178,17 +180,17 @@ export const ExptIcon = styled.img`
 export const TextMenu = styled.p`
        
             display: flex;
-            height: 20px;
+            height: 2vh;
             padding: 4px;
-            line-height: 50px;
+            line-height: 5vh;
             color:#F9FAFD;
             align-items: center;
             text-decoration: none;
-            padding-left:32px;
+            padding-left:1.5vw;
             cursor: pointer;
             font-weight:${({isActive})=>isActive?"400":"200"};
-        
-      :hover{
+            margin-bottom: 8px;
+            :hover{
             font-weight:400;
         }
 `

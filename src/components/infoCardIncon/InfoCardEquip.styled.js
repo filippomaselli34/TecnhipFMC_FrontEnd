@@ -5,14 +5,14 @@ position:absolute;
 display:flex;
 flex-direction:column;
 align-items: center;
-width:300px;
+width:15vw;
 bottom:0;
 left:0;
 
 .pop-up{
 background-color:white;
-height:100px;
-width:200px;
+height:10vh;
+width:10vw;
 border-radius:8px;
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 display:${({ cardOpen }) => cardOpen ? "flex" : "none"};

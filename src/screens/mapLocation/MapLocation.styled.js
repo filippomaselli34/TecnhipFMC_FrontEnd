@@ -4,7 +4,7 @@ export const Container = styled.div`
 /* height:calc(100vh - 100px); */
 width:${({isMenuOpen})=>isMenuOpen?"calc(100vw - 300px)":"100%"};
 max-width:1920px;
-min-width:1620px;
+/* min-width:1620px; */
 
 .voltar-btn{
     color:blue;
@@ -42,7 +42,7 @@ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 export const CompGroup = styled.div`
 position:absolute;
 background:white;
-width:60px;
+width:6vw;
 left:12px;
 top:12px;
 

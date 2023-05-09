@@ -5,7 +5,7 @@ position:absolute;
 display:flex;
 flex-direction:column;
 align-items: center;
-width:300px;
+width:15vw;
 
 bottom:0;
 left:0;
@@ -14,7 +14,7 @@ left:0;
     background-color:white;
 
 height:120px;
-width:200px;
+width:12vw;
 border-radius:8px;
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 display:${({ cardOpen }) => cardOpen ? "flex" : "none"};

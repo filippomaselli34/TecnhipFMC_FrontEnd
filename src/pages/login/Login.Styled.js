@@ -27,8 +27,7 @@ input{
 }
 .btn-login{
    margin: 0 auto;
-
-   width: 200px;
+   width: 12vw;
 }
 
 .logo{

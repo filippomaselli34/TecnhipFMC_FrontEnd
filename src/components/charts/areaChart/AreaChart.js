@@ -21,6 +21,11 @@ border-radius:8px;
     margin-left:16px;
     margin-top:32px;;
 }
+.btn-group-date{
+  position:relative;
+  margin:0 auto;
+  height:4vh;
+}
         
 
 `
@@ -92,8 +97,10 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
       <div className="title-chart">
         <p className="title-p"></p>
       </div>
+      <div className="btn-group-date">
       <ButtonTime setSelectedTime={setSelectedTime} />
       <DateInput handleRequisition={handleRequisition}/>
+      </div>
   {
     series && series.length > 0 ? (
       <ApexChartsReact
@@ -101,7 +108,7 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
         series={series}
         type="line"
         width={"100%"}
-        height={"780px"}
+        height={"780vh"}
       />
     ) : (
       <p className="sr-only">Sem dados para plotagem...</p>

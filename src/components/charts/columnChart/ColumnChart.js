@@ -17,6 +17,11 @@ border-radius:8px;
     margin-left:16px;
     margin-top:32px;;
 }
+.btn-group-date{
+  position:relative;
+  margin:0 auto;
+  height:4vh;
+}
         
 
 `
@@ -98,15 +103,18 @@ const ColumnChart = ({data,handleRequisitionHarmonica}) => {
     <div className="title-chart">
         <p className="title-p"></p>
     </div>
+    <div className="btn-group-date">
+
     <ButtonTime setSelectedTime={setSelectedTime} />
     <DateInput handleRequisition={handleRequisitionHarmonica}/>
+    </div>
     {series && series.length > 0 ? (
         <ApexChartsReact
             options={options}
             series={series}
             type="bar"
             width={"100%"}
-            height={"700px"}
+            height={"800vh"}
         />
     ) : (
         <div class="spinner-border" role="status">

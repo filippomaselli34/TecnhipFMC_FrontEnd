@@ -4,14 +4,14 @@ export const Container = styled.div`
 position:relative;
 margin:20px 0 20px 20px;
 background-color:white;
-min-height: calc(100vh - 100px);
+min-height: calc(80vh);
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 border-radius:8px;
 /* overflow:hidden; */
      .img-bg{
         margin:8px;
         width:calc(100% - 16px);
-    height:100%
+    height:calc(94vh - 6vh);
      }
 
      .teste{

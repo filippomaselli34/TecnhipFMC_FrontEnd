@@ -23,4 +23,10 @@ border-radius:8px;
         display:flex;
     }    
 
+    .btn-group-date{
+  position:relative;
+  margin:0 auto;
+  height:4vh;
+}
+
 `
