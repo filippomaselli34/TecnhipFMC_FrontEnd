@@ -127,14 +127,16 @@ const LineChart = () => {
       <div className="title-chart">
         <p className="title-p">Linha do Tempo</p>
       </div>
+      <div className="btn-group-date">
       <ButtonTime setSelectedTime={setSelectedTime} />
       <DateInput handleRequisition={handleRequisition}/>
+      </div>
       <ApexCharts
         options={options}
         series={series}
         type="rangeBar"
         width={"100%"}
-        height={"480px"}
+        height={"700vh"}
       />
     </Container>
   );

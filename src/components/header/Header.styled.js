@@ -4,7 +4,7 @@ export const ContainerHeader = styled.div`
 display:flex;
 position:relative;
 left:0;
-height:60px;
+height:6vh;
 width:100%;
 background-color:white;
 align-items:center;
@@ -14,16 +14,17 @@ padding-left:16px;
 .info-header{
     display:flex;
     align-items:center;
-    height:60px;       
-    margin-left:auto;  
+    height:6vh;       
+    /* margin-left:auto;   */
 }
 .title-view{
-margin:0 0 0 600px;;
+/* margin-left:calc(100vw - 15vw) */
 display:flex;
 justify-content:center;
 align-items:center;
 .title-view-p{
-    margin:0;
+    margin:0 auto;
+    /* margin-left:25vw;     */
     font-size:20px;
     font-weight:700;
 }
@@ -70,8 +71,8 @@ padding: 8px 20px;
 `
 export const Icon = styled.img`
    opacity:${({acti})=>acti?"100%":"50%"};
-   height:40px;
-   padding:8px;
+   height:4vh;
+   padding:0.4vw;
     border-radius:8px;
 
    :hover{

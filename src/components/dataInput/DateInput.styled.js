@@ -2,10 +2,13 @@ import styled from "styled-components";
 
 export const Contanier = styled.div`
 display:flex;
+/* flex-direction:column; */
 gap:8px;
-position:relative;
-top:12px;
+position:absolute;
+/* position:relative; */
 left:40%;
+top:20px;
+
 input{
     border:none;
     cursor:pointer;

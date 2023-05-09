@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const RadioGroup = styled.div`
 position:absolute;
-left:33%;
-top:8px;
+/* left:20vw; */
+top:-24px;
+left:35%;
 z-index:105;
-
 .btn-group 
 .group-check{
     position:relative;

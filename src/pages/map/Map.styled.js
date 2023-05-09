@@ -18,7 +18,7 @@ export const ContainerHeader = styled.div`
 display:flex;
 position:relative;
 left:0;
-height:60px;
+height:6vh;
 width:100%;
 background-color:white;
 align-items:center;
@@ -28,7 +28,7 @@ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 .info-header{
     display:flex;
     align-items:center;
-    height:60px;       
+    height:6vh;       
     align-self:end;
 }
 .title-view{
@@ -36,7 +36,7 @@ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 display:flex;
 justify-content:center;
 align-items:center;
-margin-right:725px;
+margin-right:calc(50vw - 200px);
 
 .title-view-p{
     margin:0;
@@ -77,7 +77,7 @@ margin-left:auto;
 `
 export const Icon = styled.img`
    opacity:${({ acti }) => acti ? "100%" : "50%"};
-   height:40px;
+   height:4vh;
    padding:8px;
     border-radius:8px;
 

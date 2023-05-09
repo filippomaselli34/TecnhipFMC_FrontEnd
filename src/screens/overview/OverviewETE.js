@@ -120,7 +120,7 @@ const OverviewETE = () => {
 
 
                     <DisplayETE
-                        top={'47%'}
+                        top={'49%'}
                         left={'25%'}
                         name={"Bomba Elevatória 01"}
                         value={result["ete_i15_bomba_elevatoria01"]}
@@ -128,7 +128,7 @@ const OverviewETE = () => {
                     />
 
                     <DisplayETE
-                        top={'54%'}
+                        top={'56%'}
                         left={'24%'}
                         name={"Bomba Elevatória 02"}
                         value={result["ete_i14_bomba_elevatoria02"]}

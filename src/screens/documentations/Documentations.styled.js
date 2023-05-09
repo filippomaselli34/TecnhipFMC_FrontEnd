@@ -25,14 +25,15 @@ border-radius:8px;
         select{
             border:none;
             padding:2px;
-            width:500px;
+            width:30vw;
         }
     }
 
 }
 .doc-view{
 width:100%;
-height:940px;
+height:90vh;
+max-height:90vh;
 margin-right:20px;
 }
 `

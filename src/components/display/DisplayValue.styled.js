@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Contanier = styled.div`
 position:absolute;
 height:30px;
-width:140px;
+width:150px;
 top:${({top})=>top};
 left:${({left})=>left};
 font-size:11px;
