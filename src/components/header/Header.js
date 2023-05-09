@@ -51,7 +51,7 @@ const Header = (props) => {
         const timerId = setTimeout(() => {
             handleEvents();
             setNewReq(prevState => !prevState);
-        }, 30000);
+        }, 10000);
 
         return () => {
             clearTimeout(timerId);
