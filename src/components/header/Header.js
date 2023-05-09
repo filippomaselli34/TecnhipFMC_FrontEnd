@@ -44,7 +44,7 @@ const Header = (props) => {
 
 
     useEffect(() => {
-        if(firstLoad){
+        if(!firstLoad){
             handleEvents()
             setFirstLoad(true)
         }
