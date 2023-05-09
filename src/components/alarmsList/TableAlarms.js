@@ -12,7 +12,6 @@ const TableAlarms = ({arrAlamrs,handleEvents}) => {
     setIsloading(true);
     try {
       const response = await axios.put(BASE_URL+"log", req, headers)
-      console.log(response)
 
     } catch (error) {
         console.error(error);

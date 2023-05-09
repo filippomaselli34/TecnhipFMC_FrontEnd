@@ -19,6 +19,7 @@ const OverviewETE = () => {
             setIsloading(true)
             const response = await axios.get(BASE_URL + `equipment/ete`);
             setResult(response.data);
+            console.log(response)
             setIsloading(false)
         } catch (error) {
             setIsloading(false)
