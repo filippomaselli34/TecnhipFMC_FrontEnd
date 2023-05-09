@@ -4,16 +4,16 @@ import { Contanier } from './DisplayValue.styled'
 const DisplayETE = ({
      top, 
      left, 
-     name = "Tensão Fase A", 
-     value = 220, 
-     type = "m3", 
+     name, 
+     value , 
+     type , 
      color}) => {
     const [colorInside, setColorInside] = useState("#2F5496")
     const [text,setText]=useState("Loading..")
 
     useEffect(()=>{
         handleType()
-    },[])
+    },[value])
 
     const handleType = () => {
         switch (type) {
@@ -54,13 +54,13 @@ const DisplayETE = ({
 
 
 
-
+console.log(value,name)
     return (
         <Contanier top={top} left={left} colorInside={colorInside} color={color} type={type}>
             <p className='name-p'>{name}</p>
             {type === 'm³' ?
                 <div className='display-wrapper'>
-                    <p className='value-p'>{value.toFixed(2)}</p>
+                    <p className='value-p'>{typeof value ==="number" && value.toFixed(2)}</p>
                     <p className='eng-p'>{type}</p>
 
                 </div> :

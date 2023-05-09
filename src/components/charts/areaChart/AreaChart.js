@@ -28,60 +28,39 @@ border-radius:8px;
 
 
 const AreaChart = ({ series ,eng="",handleRequisition }) => {
+  const { selectedTime,  setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
+  const [dataIni, setDataIni] = useState()
+  const [datafini, setDataFini] = useState()
 
 
-  const { selectedTime,
-    setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
 
-
-
-  const option = {
+  const options  = {
     chart: {
-      connectNulls: false,
-      height: 350,
-      type: 'line'
-    },
-    max: new Date(),
-    dataLabels: {
-      enabled: false
-    },
-    zoom: {
-      enabled: true,
-      type: 'x',
-  
-      autoScaleYaxis: true,
-      zoomedArea: {
-        fill: {
-          color: '#90CAF9',
-          opacity: 0.4
-        },
-        stroke: {
-          color: '#0D47A1',
-          opacity: 0.4,
-          width: 1
+      events:{
+        zoomed: function(chartContext, { xaxis, yaxis }) {
+          const dI =new Date(chartContext.zoomPanSelection.minX)
+          const dF =new Date(chartContext.zoomPanSelection.maxX)
+        handleRequisition(dI,dF)
         }
       },
-      toolbar: {
-        autoSelected: 'zoom'
-      },
-      minWidth: 5 * 60 * 1000, // zoom mínimo de 5 minutos
-      // para limitar o zoom máximo, você pode adicionar a opção maxWidth
-    },  
-    pan: {
-      enabled: true,
-      type: 'xy'
+      connectNulls: false,
+      width: '100%'
     },
+    dataLabels: {
+      enabled: false
+    },  
     stroke: {
       show:true,
       curve: 'smooth',
       dashArray: 0,
-      widith:0.5,
+      width:1,
       lineCap: 'square',
 
     },
     yaxis: {
       labels: {
-        formatter: function (value) {
+        formatter:  (value) =>{
+
           return value + eng
         }
       }
@@ -89,10 +68,9 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
       },
       xaxis: {
         type: 'datetime',
-        min: Date.parse(dataInicial)- Number(3*60*60*1000) - getTimeInMilliseconds(selectedTime),
-        max: Date.parse(dataFinal),
         labels: {
           formatter: function (value) {
+
             return moment(value).format('DD/MM/YYYY HH:mm:ss');
           }
         },
@@ -106,6 +84,7 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
 
       }
     }
+    
 
 
   return(
@@ -118,14 +97,14 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
   {
     series && series.length > 0 ? (
       <ApexChartsReact
-        options={option}
+        options={options}
         series={series}
         type="line"
         width={"100%"}
         height={"780px"}
       />
     ) : (
-      <span class="sr-only">Sem dados para plotagem...</span>
+      <p className="sr-only">Sem dados para plotagem...</p>
   )
   }
   

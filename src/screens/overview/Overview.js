@@ -14,7 +14,7 @@ const Overview = (props) => {
     const [equipmento, setEquipmento] = useState("trafo01Img")
 
     useEffect(() => {
-
+        handleReqOverview()
         if (equip.equipDB === "Trafo01") {
             setEquipmento(trafo01Img)
             setLeft("100px")
@@ -44,11 +44,11 @@ const Overview = (props) => {
         const intervalId = setInterval(handleReqOverview, 10000);
         return () => clearInterval(intervalId);
     }, [handleReqOverview]);
-    useEffect(()=>{
-handleReqOverview()
 
-    },[])
+//     useEffect(()=>{
+// handleReqOverview()
 
+//     },[])
     return (
 
 
@@ -69,7 +69,7 @@ handleReqOverview()
                                 <DisplayValue top={"600px"} left={left} name={"Corrent Fase B"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_b`]} eng={"A"} />
                                 <DisplayValue top={"660px"} left={left} name={"Corrent Fase C"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_c`]} eng={"A"} />
 
-                                <DisplayValue top={"760px"} left={left} name={"Frequência Total"} value={result.freqencia[`${equip.preTag.toLowerCase()}_freqencia`]} eng={"Hz"} />
+                                <DisplayValue top={"760px"} left={left} name={"Frequência Total"} value={result.freqencia[`${equip.preTag.toLowerCase()}_frequencia`]} eng={"Hz"} />
                                 <DisplayValue top={"820px"} left={left} name={"Fator de Potência Total"} value={result.tensao[`${equip.preTag.toLowerCase()}_fator_potencia_total`]} eng={"FP"} />
 
 
