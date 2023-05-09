@@ -21,17 +21,31 @@ useEffect(()=>{
     handleRequisition()
 },[type, selectedTime])
 
-    const handleRequisition = async () => {
+    const handleRequisition = async (dI,dF) => {
+        let dataIn
+        let dataFi
+        if(dI!==undefined){
+            dataIn=dI
+        }else{
+            dataIn = new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime))
+        }
+        if(dI!==undefined){
+            dataFi=dF
+        }else{
+            dataFi = new Date(dataFinal)
+        }
         const newReq ={
             trafo:equip.equipDB.toLowerCase(),
             type,
-            initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)),
-            finalDate: new Date(dataFinal)
+            initialDate: dataIn,
+            finalDate: dataFi
         }
     try {
         setIsloading(true)
         const result = await axios.post(BASE_URL+"equipment",newReq)
         setSeries(result.data)
+        console.log(result)
+        console.log("foi")
         setIsloading(false)
     } catch (error) {
         setIsloading(false)

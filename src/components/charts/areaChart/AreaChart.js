@@ -29,11 +29,20 @@ border-radius:8px;
 
 const AreaChart = ({ series ,eng="",handleRequisition }) => {
   const { selectedTime,  setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
+  const [dataIni, setDataIni] = useState()
+  const [datafini, setDataFini] = useState()
 
 
 
   const options  = {
     chart: {
+      events:{
+        zoomed: function(chartContext, { xaxis, yaxis }) {
+          const dI =new Date(chartContext.zoomPanSelection.minX)
+          const dF =new Date(chartContext.zoomPanSelection.maxX)
+        handleRequisition(dI,dF)
+        }
+      },
       connectNulls: false,
       width: '100%'
     },
@@ -59,8 +68,6 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
       },
       xaxis: {
         type: 'datetime',
-        min: Date.parse(dataInicial)- Number(3*60*60*1000) - getTimeInMilliseconds(selectedTime),
-        max: Date.parse(dataFinal),
         labels: {
           formatter: function (value) {
 
