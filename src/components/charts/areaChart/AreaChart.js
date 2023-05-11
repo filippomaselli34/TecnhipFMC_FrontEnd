@@ -32,20 +32,34 @@ border-radius:8px;
 
 
 
-const AreaChart = ({ series ,eng="",handleRequisition }) => {
-  const { selectedTime,  setSelectedTime, dataInicial, dataFinal } = useContext(RequisitionContext)
+const AreaChart = ({ series, eng = "", handleRequisition }) => {
+  const { selectedTime, setSelectedTime, dataInicial, setDataInicial, dataFinal,setDataFinal } = useContext(RequisitionContext)
   const [dataIni, setDataIni] = useState()
   const [datafini, setDataFini] = useState()
 
+console.log(dataFinal,new Date(dataInicial))
 
 
-  const options  = {
+  const options = {
     chart: {
-      events:{
-        zoomed: function(chartContext, { xaxis, yaxis }) {
-          const dI =new Date(chartContext.zoomPanSelection.minX)
-          const dF =new Date(chartContext.zoomPanSelection.maxX)
-        handleRequisition(dI,dF)
+      
+
+      events: {
+        zoomed: function (chartContext, { xaxis, yaxis }) {
+          let min
+          let max
+          if (chartContext.zoomPanSelection.minX < chartContext.zoomPanSelection.maxX) {
+            min = chartContext.zoomPanSelection.minX
+            max = chartContext.zoomPanSelection.maxX
+          } else {
+            max = chartContext.zoomPanSelection.minX
+            min = chartContext.zoomPanSelection.maxX
+          }
+          const dI = new Date(min).toISOString()
+          const dF = new Date(max).toISOString()
+          setDataInicial(dI)
+          setDataFinal(dF)
+          handleRequisition(dI, dF)
         }
       },
       connectNulls: false,
@@ -53,68 +67,70 @@ const AreaChart = ({ series ,eng="",handleRequisition }) => {
     },
     dataLabels: {
       enabled: false
-    },  
+    },
     stroke: {
-      show:true,
+      show: true,
       curve: 'smooth',
       dashArray: 0,
-      width:1,
+      width: 1,
       lineCap: 'square',
 
     },
     yaxis: {
       labels: {
-        formatter:  (value) =>{
+        formatter: (value) => {
 
           return value + eng
         }
       }
 
+    },
+    xaxis: {
+      type: 'datetime',
+
+      labels: {
+        formatter: function (value) {
+
+          return moment(value).format('DD/MM/YYYY HH:mm:ss');
+        }
       },
-      xaxis: {
-        type: 'datetime',
-        labels: {
-          formatter: function (value) {
 
-            return moment(value).format('DD/MM/YYYY HH:mm:ss');
-          }
-        },
+    },
+    tooltip: {
+      x: {
+        format: 'dd/MM/yy HH:mm:ss',
 
       },
-      tooltip: {
-        x: {
-          format: 'dd/MM/yy HH:mm:ss',
-         
-        },
 
-      }
     }
-    
+  }
+
+  console.log(series)
 
 
-  return(
+  return (
     <Container>
       <div className="title-chart">
         <p className="title-p"></p>
       </div>
       <div className="btn-group-date">
-      <ButtonTime setSelectedTime={setSelectedTime} />
-      <DateInput handleRequisition={handleRequisition}/>
+        <ButtonTime setSelectedTime={setSelectedTime} />
+        <DateInput handleRequisition={handleRequisition} />
       </div>
-  {
-    series && series.length > 0 ? (
-      <ApexChartsReact
-        options={options}
-        series={series}
-        type="line"
-        width={"100%"}
-        height={"780vh"}
-      />
-    ) : (
-      <p className="sr-only">Sem dados para plotagem...</p>
-  )
-  }
-  
+      {
+        series && series.length > 0 ? (
+          <ApexChartsReact
+            options={options}
+            series={series}
+            type="line"
+            width={"100%"}
+            height={"780vh"}
+          />
+        ) : (
+          <p className="sr-only">Sem dados para plotagem...</p>
+        )
+      }
+
     </Container >
   )
 }

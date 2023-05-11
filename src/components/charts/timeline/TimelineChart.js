@@ -108,8 +108,8 @@ const LineChart = () => {
     },
     xaxis: {
       type: "datetime",
-      min: Date.parse(dataInicial)- Number(3*60*60*1000) - getTimeInMilliseconds(selectedTime),
-      max: Date.parse(dataFinal),
+      min: Date.parse(new Date())- Number(3*60*60*1000) - getTimeInMilliseconds(selectedTime),
+      max: Date.parse(new Date()),
     },
     plotOptions: {
       bar: {

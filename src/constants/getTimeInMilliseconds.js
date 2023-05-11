@@ -26,16 +26,16 @@ export const getTimeInMilliseconds = (time) => {
         return 3600000*24*30*12; // 1 ano
       // adicione outros casos para outros valores de tempo
       default:
-        return 300000; // valor padrão: 15 minutos
+        return 1000*60; // valor padrão: 15 minutos
     }
   };
 
   export const getGap = (time) => {
     switch (time) {
       case "15m":
-        return 30*1000; // 30 segundos
+        return 20*1000; // 30 segundos
       case "30m":
-        return 60*1000; // 1 minuto
+        return 30*1000; // 1 minuto
       case "1H":
         return 60*1000; // 1 minuto
       case "6H":
@@ -47,17 +47,17 @@ export const getTimeInMilliseconds = (time) => {
       case "7D":
         return 60*1000*60; // 60 minutos
       case "15D":
-        return 60*1000*60; // 60 minutos
+        return 60*1000*60*6; // 6 horas
       case "1M":
-        return 60*1000*60*24; // 1 dia
+        return 60*1000*60*12; // 12 horas
       case "3M":
-        return 60*1000*60*24; // 1 dia
+        return 60*1000*60*24*2; // 2 dia
       case "6M":
         return 60*1000*60*24*7; // 7 dia
       case "1A":
-        return 60*1000*5; // 1 ano
+        return 60*1000*60*24*7; // 1 dias
       // adicione outros casos para outros valores de tempo
       default:
-        return 30*1000; // valor padrão: 15 minutos
+        return 10*1000; // valor padrão: 15 minutos
     }
   }

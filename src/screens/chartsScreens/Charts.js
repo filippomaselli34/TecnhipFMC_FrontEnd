@@ -25,14 +25,14 @@ useEffect(()=>{
         let dataIn
         let dataFi
         if(dI!==undefined){
-            dataIn=dI
+            dataIn=new Date(dI).toISOString()
         }else{
-            dataIn = new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime))
+            dataIn = new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)).toISOString()
         }
-        if(dI!==undefined){
-            dataFi=dF
+        if(dF!==undefined){
+            dataFi=new Date(dF).toISOString()
         }else{
-            dataFi = new Date(dataFinal)
+            dataFi = new Date(dataFinal).toISOString()
         }
         const newReq ={
             trafo:equip.equipDB.toLowerCase(),
