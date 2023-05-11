@@ -14,6 +14,7 @@ import ChartsEte from '../../screens/chartsScreens/ChartsEte'
 import OverviewETE from '../../screens/overview/OverviewETE'
 import ChartsETETimeline from '../../screens/chartsScreens/ChartETETimeLine'
 import { handleDataNowCalendar } from '../../constants/handleDate'
+import { getTimeInMilliseconds } from '../../constants/getTimeInMilliseconds'
 
 const DashBoard = () => {
   const [equip, setEquip] = useState({})
@@ -44,8 +45,8 @@ const DashBoard = () => {
   const [idOpen, setIdOpen]=useState(false)
 
   
-  const [dataInicial, setDataInicial] = useState(handleDataNowCalendar())
-  const [dataFinal, setDataFinal] = useState(handleDataNowCalendar())
+  const [dataInicial, setDataInicial] = useState(new Date(new Date().getTime()-getTimeInMilliseconds(selectedTime)))
+  const [dataFinal, setDataFinal] = useState(new Date())
 
 
 
@@ -128,7 +129,7 @@ const DashBoard = () => {
         return <Charts type={screenFlow} eng={"A"} />
         break;
       case "Potência Elétrica":
-        return <Charts type={screenFlow} />
+        return <Charts type={screenFlow} eng={'W'} />
         break;
       case "Frequência":
         return <Charts type={screenFlow} eng={"Hz"} />

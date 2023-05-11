@@ -17,11 +17,11 @@ const Overview = (props) => {
         handleReqOverview()
         if (equip.equipDB === "Trafo01") {
             setEquipmento(trafo01Img)
-            setLeft("100px")
+            setLeft("5vw")
 
         } else if (equip.equipDB === "Trafo02") {
             setEquipmento(trafo02Img)
-            setLeft("1400px")
+            setLeft("85%")
         }
 
 
@@ -29,9 +29,11 @@ const Overview = (props) => {
 
     const handleReqOverview = useCallback(async () => {
         try {
+            console.log(equip)
             setIsloading(true)
             const response = await axios.get(BASE_URL + `equipment?trafo=${equip.equipDB.toLowerCase()}`);
             setResult(response.data);
+            console.log(response.data)
             setIsloading(false)
         } catch (error) {
             setIsloading(false)
@@ -65,9 +67,9 @@ const Overview = (props) => {
                                 <DisplayValue top={"38vh"} left={left} name={"Tensão Fase B-C"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_linha_bc`]} eng={"V"} />
                                 <DisplayValue top={"44vh"} left={left} name={"Tensão Fase C-A"} value={result.tensao[`${equip.preTag.toLowerCase()}_tensao_linha_ca`]} eng={"V"} />
 
-                                <DisplayValue top={"54vh"} left={left} name={"Corrent Fase A"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_a`]} eng={"A"} />
-                                <DisplayValue top={"60vh"} left={left} name={"Corrent Fase B"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_b`]} eng={"A"} />
-                                <DisplayValue top={"66vh"} left={left} name={"Corrent Fase C"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_c`]} eng={"A"} />
+                                <DisplayValue top={"54vh"} left={left} name={"Corrente Fase A"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_a`]} eng={"A"} />
+                                <DisplayValue top={"60vh"} left={left} name={"Corrente Fase B"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_b`]} eng={"A"} />
+                                <DisplayValue top={"66vh"} left={left} name={"Corrente Fase C"} value={result.corrente[`${equip.preTag.toLowerCase()}_thd_corrente_c`]} eng={"A"} />
 
                                 <DisplayValue top={"76vh"} left={left} name={"Frequência Total"} value={result.freqencia[`${equip.preTag.toLowerCase()}_frequencia`]} eng={"Hz"} />
                                 <DisplayValue top={"82vh"} left={left} name={"Fator de Potência Total"} value={result.tensao[`${equip.preTag.toLowerCase()}_fator_potencia_total`]} eng={"FP"} />

@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import { getTimeInMilliseconds } from '../../constants/getTimeInMilliseconds';
+import { handleDataNowCalendar } from '../../constants/handleDate';
 import { RequisitionContext } from '../../context/RequisitionContext';
 import { RadioGroup } from './ButtonTime.styled';
 
@@ -8,8 +10,8 @@ const ButtonTime = ({setSelectedTime}) => {
 
 
     const handleOnChange = (e) => {
-      setDataInicial(new Date().toISOString())
-      setDataFinal(new Date().toISOString())
+      setDataInicial(new Date().getTime()-getTimeInMilliseconds(e.target.id))
+      // setDataInicial(handleDataNowCalendar(new Date().getTime()-getTimeInMilliseconds(e.target.id)))
         setSelectedTime(e.target.id);
       };
 
