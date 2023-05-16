@@ -21,7 +21,7 @@ const ChartsEte = ({ type ,eng }) => {
     
         const handleRequisition = async () => {
             const newReq ={
-                initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)),
+                initialDate: new Date(new Date(dataInicial).getTime()),
                 finalDate: new Date(dataFinal)
             }
         try {

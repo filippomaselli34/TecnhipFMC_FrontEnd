@@ -18,7 +18,7 @@ const LineChart = () => {
 
     const handleRequisition = async () => {
         const newReq ={
-          initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)).toISOString(),
+          initialDate: new Date(new Date(dataInicial).getTime()).toISOString(),
           finalDate: new Date(dataFinal).toISOString()
         }
     try {

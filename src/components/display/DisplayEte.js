@@ -54,7 +54,6 @@ const DisplayETE = ({
 
 
 
-console.log(value,name)
     return (
         <Contanier top={top} left={left} colorInside={colorInside} color={color} type={type}>
             <p className='name-p'>{name}</p>

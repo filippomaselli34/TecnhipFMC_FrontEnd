@@ -42,10 +42,11 @@ const DashBoard = () => {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false)
   const [data, setData] = useState([])
   const [equipData, setEquipData] = useState([])
-  const [idOpen, setIdOpen]=useState(false)
+  const [idOpen, setIdOpen] = useState(false)
+  const [eng, setEng] = useState()
 
-  
-  const [dataInicial, setDataInicial] = useState(new Date(new Date().getTime()-getTimeInMilliseconds(selectedTime)))
+
+  const [dataInicial, setDataInicial] = useState(new Date(new Date().getTime() - getTimeInMilliseconds(selectedTime)))
   const [dataFinal, setDataFinal] = useState(new Date())
 
 
@@ -57,7 +58,7 @@ const DashBoard = () => {
 
 
   const handleClickArea = (area) => {
-    const newEquip =  equipments.find((equip)=>equip.area===area)
+    const newEquip = equipments.find((equip) => equip.area === area)
     if (idOpen === area) {
       setIdOpen(null)
     } else {
@@ -96,12 +97,15 @@ const DashBoard = () => {
     data, setData,
     dataInicial, setDataInicial,
     dataFinal, setDataFinal,
-    handleClickArea
+    handleClickArea,
+    eng, setEng
 
   }
   const handleModalClose = () => {
     setModalIsOpen(false)
   }
+
+
 
 
   useEffect(() => {
@@ -123,16 +127,16 @@ const DashBoard = () => {
         return <AlarmsList />
         break;
       case "Tensão Elétrica":
-        return <Charts type={screenFlow} eng={"V"} />
+        return <Charts type={screenFlow} engProp={"V"} />
         break;
       case "Corrente Elétrica":
-        return <Charts type={screenFlow} eng={"A"} />
+        return <Charts type={screenFlow} engProp={"A"} />
         break;
       case "Potência Elétrica":
-        return <Charts type={screenFlow} eng={'W'} />
+        return <Charts type={screenFlow} engProp={"W"} />
         break;
       case "Frequência":
-        return <Charts type={screenFlow} eng={"Hz"} />
+        return <Charts type={screenFlow} engProp={"Hz"} />
         break;
       case "Fator de Potência":
         return <Charts type={screenFlow} />
@@ -164,7 +168,7 @@ const DashBoard = () => {
   }, [])
 
 
-  
+
 
   return (
 
