@@ -24,7 +24,7 @@ useEffect(()=>{
     const newReq ={
         trafo:equip.equipDB.toLowerCase(),
         type:"Harmônica",
-        initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)),
+        initialDate: new Date(new Date(dataInicial).getTime()),
         finalDate: new Date(dataFinal)
     }
 

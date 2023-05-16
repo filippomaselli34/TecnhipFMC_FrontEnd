@@ -32,34 +32,65 @@ border-radius:8px;
 
 
 
-const AreaChart = ({ series, eng = "", handleRequisition }) => {
-  const { selectedTime, setSelectedTime, dataInicial, setDataInicial, dataFinal,setDataFinal } = useContext(RequisitionContext)
+const AreaChart = ({ series, engProp, handleRequisition }) => {
+  const { selectedTime, setSelectedTime, dataInicial, setDataInicial, dataFinal, setDataFinal, eng, screenFlow } = useContext(RequisitionContext)
   const [dataIni, setDataIni] = useState()
   const [datafini, setDataFini] = useState()
+  const [format, setFormat] = useState()
 
-console.log(dataFinal,new Date(dataInicial))
+  useEffect(()=>{
+    setSelectedTime('5m')
+  },[screenFlow])
 
+  const handleEng = () => {
+    switch (screenFlow) {
+      case "Tensão Elétrica":
+        return ("V")
+        break;
+      case "Corrente Elétrica":
+        return ("A")
+        break;
+      case "Potência Elétrica":
+        return ("W")
+        break;
+      case "Frequência":
+        return ("Hz")
+        break;
+      case "ETE - Gráficos":
+        return ("m³")
+        break;
+      default:
+        return ("")
+        break
 
+    }
+  }
   const options = {
     chart: {
-      
-
-      events: {
-        zoomed: function (chartContext, { xaxis, yaxis }) {
+      zoom:{
+        enabled:true
+      },
+     events: {
+      beforeZoom: function (chartContext, { xaxis, yaxis }) {
           let min
           let max
-          if (chartContext.zoomPanSelection.minX < chartContext.zoomPanSelection.maxX) {
-            min = chartContext.zoomPanSelection.minX
-            max = chartContext.zoomPanSelection.maxX
+          if (chartContext.minX < chartContext.maxX) {
+            min = chartContext.minX
+            max = chartContext.maxX
           } else {
-            max = chartContext.zoomPanSelection.minX
-            min = chartContext.zoomPanSelection.maxX
+            max = chartContext.minX
+            min = chartContext.maxX
+          } 
+
+          setDataInicial(new Date(min).toISOString())
+          setDataFinal( new Date(max).toISOString())
+          handleRequisition(new Date(min).toISOString(),  new Date(max).toISOString())
+          return {
+            xaxis:{
+              min:new Date(min).getTime(),
+              max:new Date(max).getTime()
+            }
           }
-          const dI = new Date(min).toISOString()
-          const dF = new Date(max).toISOString()
-          setDataInicial(dI)
-          setDataFinal(dF)
-          handleRequisition(dI, dF)
         }
       },
       connectNulls: false,
@@ -79,8 +110,13 @@ console.log(dataFinal,new Date(dataInicial))
     yaxis: {
       labels: {
         formatter: (value) => {
-
-          return value + eng
+          let val
+          if ((value * 10) % 10 !== 0 && typeof value === "number") {
+            val = value.toFixed(2)
+          } else {
+            val = value
+          }
+          return val + handleEng()
         }
       }
 
@@ -105,7 +141,6 @@ console.log(dataFinal,new Date(dataInicial))
     }
   }
 
-  console.log(series)
 
 
   return (
