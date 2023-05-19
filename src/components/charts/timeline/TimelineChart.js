@@ -16,18 +16,23 @@ const LineChart = () => {
     handleRequisition()
 },[ selectedTime])
 
+
     const handleRequisition = async () => {
         const newReq ={
-          initialDate: new Date(new Date(dataInicial).getTime()).toISOString(),
+          initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)).toISOString(),
           finalDate: new Date(dataFinal).toISOString()
         }
     try {
         setIsLoading(true)
         const result = await axios.post(BASE_URL+"equipment/digital",newReq)
-        setData(result.data)
+        // setData(result.data)
+        setData(result.data.filter((val)=>val.x.includes("Motor Misturador 02")))
         setIsLoading(false)
     } catch (error) {
         setIsLoading(false)
+        if(error.response.data==="Nenhum dado encontrado"){
+          setData([])
+        }
         console.log(error)
     }
     
@@ -77,6 +82,11 @@ const LineChart = () => {
   ];
 
   const options = {
+    chart:{
+animations:{
+  enabled:false
+}
+    },
     
     tooltip: {
       enabled: true,
@@ -108,8 +118,8 @@ const LineChart = () => {
     },
     xaxis: {
       type: "datetime",
-      min: Date.parse(new Date())- Number(3*60*60*1000) - getTimeInMilliseconds(selectedTime),
-      max: Date.parse(new Date()),
+      min: new Date().getTime() - getTimeInMilliseconds(selectedTime) - 3*60*60*1000
+
     },
     plotOptions: {
       bar: {
@@ -128,7 +138,7 @@ const LineChart = () => {
         <p className="title-p">Linha do Tempo</p>
       </div>
       <div className="btn-group-date">
-      <ButtonTime setSelectedTime={setSelectedTime} />
+      <ButtonTime setSelectedTime={setSelectedTime} handleRequisition={handleRequisition} />
       <DateInput handleRequisition={handleRequisition}/>
       </div>
       <ApexCharts

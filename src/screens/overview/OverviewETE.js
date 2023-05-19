@@ -28,7 +28,9 @@ const OverviewETE = () => {
     }, [equip]);
 
     useEffect(() => {
+        
         const intervalId = setInterval(handleReqOverview, 10000);
+        console.log('req')
         return () => clearInterval(intervalId);
     }, [handleReqOverview]);
     useEffect(() => {

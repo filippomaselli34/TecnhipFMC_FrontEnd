@@ -14,9 +14,10 @@ const DateInput = ({handleRequisition}) => {
             <input type="date" value={dataFinalBuffer} onChange={(e) => setDataFinalBuffer(e.target.value)} />
             <button onClick={()=>{
                 setSelectedTime('5m')
+                console.log(new Date(dataInicialBuffer).toISOString())
                 setDataInicial(dataInicialBuffer)
                 setDataFinal(dataFinalBuffer)
-                handleRequisition()}} className='btn btn-light'>Enviar</button>
+                handleRequisition(new Date(new Date(dataInicialBuffer).getTime()+3*60*60*1000),new Date(new Date(dataFinalBuffer).getTime()+3*60*60*1000))}} className='btn btn-light'>Enviar</button>
         </Contanier>
     )
 }

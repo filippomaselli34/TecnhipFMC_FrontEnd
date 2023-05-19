@@ -4,15 +4,17 @@ import { handleDataNowCalendar } from '../../constants/handleDate';
 import { RequisitionContext } from '../../context/RequisitionContext';
 import { RadioGroup } from './ButtonTime.styled';
 
-const ButtonTime = ({setSelectedTime}) => {
+const ButtonTime = ({setSelectedTime , handleRequisition}) => {
 
   const {setDataInicial,setDataFinal} = useContext(RequisitionContext)
 
 
     const handleOnChange = (e) => {
-      setDataInicial(new Date().getTime()-getTimeInMilliseconds(e.target.id))
+      setDataInicial(new Date(new Date().getTime()-getTimeInMilliseconds(e.target.id)))
       // setDataInicial(handleDataNowCalendar(new Date().getTime()-getTimeInMilliseconds(e.target.id)))
         setSelectedTime(e.target.id);
+        setDataFinal(new Date(new Date().getTime()))
+        handleRequisition(new Date(new Date().getTime()-getTimeInMilliseconds(e.target.id)),new Date())
       };
 
     const timeLineRadios = [
