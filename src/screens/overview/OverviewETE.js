@@ -130,7 +130,7 @@ const OverviewETE = () => {
 
                     <DisplayETE
                         top={'60.6%'}
-                        left={'24%'}
+                        left={'25%'}
                         name={"Bomba Elevatória 02"}
                         value={result["ete_i14_bomba_elevatoria02"]}
                         type={"lig/des"}
