@@ -5,13 +5,22 @@ import { BASE_URL } from "../../../constants/BASE_URL";
 import { getTimeInMilliseconds } from "../../../constants/getTimeInMilliseconds";
 import { RequisitionContext } from "../../../context/RequisitionContext";
 import ButtonTime from "../../buttonTime/ButtonTime";
+import ButtonTimeETE from "../../buttonTime/ButtonTimeETE";
 import DateInput from "../../dataInput/DateInput";
 import { Container} from "./TimelineChart.Styled";
 
 const LineChart = () => {
-  const {data,setData, selectedTime, setSelectedTime,dataInicial, dataFinal} = useContext(RequisitionContext);
+  const {data,setData, selectedTime, setSelectedTime,dataInicial, dataFinal,screenFlow,setDataInicial,setDataFinal} = useContext(RequisitionContext);
   const [isLoading,setIsLoading] = useState(false)
+  const [haLoaded,setHasLoaded] = useState(false)
 
+  useEffect(()=>{
+    setSelectedTime('5m')
+    setDataInicial(new Date(new Date().getTime() - getTimeInMilliseconds('5m')))
+    setDataFinal(new Date())
+    setHasLoaded(false)
+
+  },[])
   useEffect(()=>{
     handleRequisition()
 },[ selectedTime])
@@ -26,8 +35,9 @@ const LineChart = () => {
         setIsLoading(true)
         const result = await axios.post(BASE_URL+"equipment/digital",newReq)
         // setData(result.data)
-        setData(result.data.filter((val)=>val.x.includes("Motor Misturador 02")))
+        setData(result.data)
         setIsLoading(false)
+        setHasLoaded(true)
     } catch (error) {
         setIsLoading(false)
         if(error.response.data==="Nenhum dado encontrado"){
@@ -83,6 +93,7 @@ const LineChart = () => {
 
   const options = {
     chart:{
+      id:screenFlow,
 animations:{
   enabled:false
 }
@@ -138,16 +149,20 @@ animations:{
         <p className="title-p">Linha do Tempo</p>
       </div>
       <div className="btn-group-date">
-      <ButtonTime setSelectedTime={setSelectedTime} handleRequisition={handleRequisition} />
-      <DateInput handleRequisition={handleRequisition}/>
+      <ButtonTimeETE setSelectedTime={setSelectedTime} handleRequisition={handleRequisition} />
+      <DateInput handleRequisition={handleRequisition} timeline={true}/>
       </div>
-      <ApexCharts
+      {!isLoading?
+
+        <ApexCharts
         options={options}
         series={series}
         type="rangeBar"
         width={"100%"}
         height={"700vh"}
-      />
+        />:
+        <p>Buscando....</p>
+      }
     </Container>
   );
 };

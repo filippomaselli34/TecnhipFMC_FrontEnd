@@ -84,10 +84,10 @@ const FormNewUser = ({ setModalUser }) => {
             </UserGroup>
             <button onClick={() => setModalUser(0)} className='btn btn-dark clode-btn'>X</button>
             <FormContainer onSubmit={handleSubmitForm}>
-                <h3>Criar novo Usuario</h3>
+                <h3>Criar novo Usuário</h3>
 
                 <GroupWrapper>
-                    <label>Matricula</label>
+                    <label>Matrícula</label>
                     <input
                         placeholder="Matricula"
                         value={matricula}

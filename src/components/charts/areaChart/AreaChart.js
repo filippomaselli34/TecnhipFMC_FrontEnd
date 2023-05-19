@@ -37,6 +37,12 @@ const AreaChart = ({ series, engProp, handleRequisition }) => {
   const [dataIni, setDataIni] = useState()
   const [datafini, setDataFini] = useState()
   const [format, setFormat] = useState()
+useEffect(()=>{
+  setSelectedTime('5m')
+  setDataInicial(new Date(new Date().getTime() - getTimeInMilliseconds('5m')))
+  setDataFinal(new Date())
+},[])
+
 
   useEffect(() => {
     setSelectedTime('5m')
@@ -95,7 +101,7 @@ const AreaChart = ({ series, engProp, handleRequisition }) => {
       show: true,
       curve: 'smooth',
       dashArray: 0,
-      width: 1,
+      width: 2,
       lineCap: 'square',
 
     },
@@ -149,7 +155,7 @@ const AreaChart = ({ series, engProp, handleRequisition }) => {
           <ApexChartsReact
             options={options}
             series={series}
-            type="area" // line para linha e area para area
+            type="line" // line para linha e area para area
             width={"100%"}
             height={"780vh"}
           />

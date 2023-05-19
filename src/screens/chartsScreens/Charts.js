@@ -90,7 +90,7 @@ useEffect(() => {
     return (
         <Container>
 
-            <AreaChart series={series} engProp={handleEng()} handleRequisition={handleRequisition}
+            <AreaChart series={series} engProp={handleEng()} handleRequisition={handleRequisition} ete={false}
  />
         </Container>
     )

@@ -49,7 +49,7 @@ const ChartsEte = ({ type ,eng }) => {
   return (
     <Container>
 
-    <AreaChart series={series} eng={eng} handleRequisition={handleRequisition}/>
+    <AreaChart series={series} eng={eng} handleRequisition={handleRequisition} ete={true}/>
 
 </Container>
   )

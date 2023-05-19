@@ -50,7 +50,7 @@ const OverviewETE = () => {
 
                     <DisplayETE
                         top={'4%'}
-                        left={'14%'}
+                        left={'13%'}
                         name={"Nível"}
                         value={result["ete_sensor_nivel_m3"]}
                         type={"m³"}
@@ -89,31 +89,31 @@ const OverviewETE = () => {
                     />
 
                     <DisplayETE
-                        top={'2%'}
-                        left={'40%'}
+                        top={'0.5%'}
+                        left={'38%'}
                         name={"Motor Misturador 01"}
                         value={result["ete_i10_motor_misturador01"]}
                         type={"lig/des"}
                     />
                     <DisplayETE
-                        top={'8%'}
-                        left={'40%'}
+                        top={'6.5%'}
+                        left={'38%'}
                         name={"Motor Aeração 01"}
                         value={result["ete_i17_motor_aeracao01"]}
                         type={"lig/des"}
                     />
 
                     <DisplayETE
-                        top={'6%'}
-                        left={'49%'}
+                        top={'4%'}
+                        left={'52%'}
                         name={"Motor Misturador 02"}
                         value={result["ete_i11_motor_misturador02"]}
                         type={"lig/des"}
                     />
 
                     <DisplayETE
-                        top={'12%'}
-                        left={'49%'}
+                        top={'10%'}
+                        left={'52%'}
                         name={"Motor Aeração 02"}
                         value={result["ete_i16_motor_aeracao02"]}
                         type={"lig/des"}

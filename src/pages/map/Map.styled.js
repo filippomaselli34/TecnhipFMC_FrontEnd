@@ -36,7 +36,8 @@ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 display:flex;
 justify-content:center;
 align-items:center;
-margin-right:calc(50vw - 200px);
+width:200px;
+margin-right:calc(50vw - 250px);
 
 .title-view-p{
     margin:0;

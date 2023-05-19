@@ -4,7 +4,7 @@ export const RadioGroup = styled.div`
 position:absolute;
 /* left:20vw; */
 top:-24px;
-left:35%;
+left:${({tl})=>tl?"40%":"35%"};
 z-index:105;
 .btn-group 
 .group-check{
