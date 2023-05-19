@@ -19,11 +19,20 @@ const ChartsEte = ({ type ,eng }) => {
         handleRequisition()
     },[type, selectedTime])
     
-        const handleRequisition = async () => {
-            const newReq ={
-                initialDate: new Date(new Date(dataInicial).getTime()),
-                finalDate: new Date(dataFinal)
+        const handleRequisition = async (dI,dF) => {
+            let newReq
+            if(dI!==undefined){
+                newReq ={
+                    initialDate: new Date(dI).toISOString(),
+                    finalDate: new Date(dF).toISOString()
+                }
+            }else{
+            newReq ={
+                initialDate: new Date(new Date(dataInicial)).toISOString(),
+                finalDate: new Date(dataFinal).toISOString()
             }
+        }
+            console.log(newReq)
         try {
             setIsloading(true)
             const result = await axios.post(BASE_URL+"equipment/analogic",newReq)
@@ -40,7 +49,7 @@ const ChartsEte = ({ type ,eng }) => {
   return (
     <Container>
 
-    <AreaChart series={series} eng={eng} handleRequisition={handleRequisition}/>
+    <AreaChart series={series} eng={eng} handleRequisition={handleRequisition} ete={true}/>
 
 </Container>
   )

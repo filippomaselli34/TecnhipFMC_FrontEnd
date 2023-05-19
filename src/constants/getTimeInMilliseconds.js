@@ -26,7 +26,7 @@ export const getTimeInMilliseconds = (time) => {
         return 3600000*24*30*12; // 1 ano
       // adicione outros casos para outros valores de tempo
       default:
-        return 1000*60; // valor padrão: 15 minutos
+        return 1000*60*5; // valor padrão: 5 minutos
     }
   };
 

@@ -4,7 +4,7 @@ import { handleDataNowCalendar } from '../../constants/handleDate';
 import { RequisitionContext } from '../../context/RequisitionContext';
 import { RadioGroup } from './ButtonTime.styled';
 
-const ButtonTime = ({setSelectedTime , handleRequisition}) => {
+const ButtonTimeETE = ({setSelectedTime , handleRequisition ,tl=true}) => {
 
   const {setDataInicial,setDataFinal} = useContext(RequisitionContext)
 
@@ -24,16 +24,11 @@ const ButtonTime = ({setSelectedTime , handleRequisition}) => {
         { label: "6H", id: "6H" },
         { label: "12H", id: "12H" },
         { label: "1D", id: "1D" },
-        { label: "7D", id: "7D" },
-        { label: "15D", id: "15D" },
-        { label: "1M", id: "1M" },
-        { label: "3M", id: "3M" },
-        { label: "6M", id: "6M" },
-        { label: "1A", id: "1A" }
+        { label: "7D", id: "7D" }
       ];
 
   return (
-    <RadioGroup onChange={handleOnChange}>
+    <RadioGroup onChange={handleOnChange} tl={tl}>
     <div className="btn-group" id="btn-chart" role="group" aria-label="Basic outlined example">
       {timeLineRadios.map((radio) => (
         <div className="group-check" key={radio.id}>
@@ -49,4 +44,4 @@ const ButtonTime = ({setSelectedTime , handleRequisition}) => {
   )
 }
 
-export default ButtonTime
+export default ButtonTimeETE

@@ -18,13 +18,13 @@ const MapLocation = ({isMenuOpen}) => {
 
             {viewFlow === 0 ?
                 <ContainerMap isNotificationOpen={isNotificationOpen}>
-                    <IconEquip top={"32%"} left={"0%"}  >
-                    <InfoCardEquip direction="d" btnValue="ETE"
-                    titile="Estação de Tratamento de Efluentes" />
+                    <IconEquip top={"60%"} left={"82%"}  > {/*local que posiciona o icone*/}
+                    <InfoCardEquip direction="e" btnValue="ETE"
+                    titile="Estação de Tratamento de Efluentes" /> {/* direçao e para esquerda e d para direita*/}
                     </IconEquip>
-                    <IconEquip top={"60%"} left={"82%"}  >
-                    <InfoCardEquip direction="e" btn2={true} btnValue="Trafo01" btn2Value="Trafo02"
-                    titile="Substação01" />
+                    <IconEquip top={"32%"} left={"0%"}  >
+                    <InfoCardEquip direction="d" btn2={true} btnValue="Trafo01" btn2Value="Trafo02"
+                    titile="Substação01" /> {/* direçao e para esquerda e d para direita*/}
                     </IconEquip>
 
                     <CompGroup>

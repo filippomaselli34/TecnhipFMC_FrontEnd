@@ -83,7 +83,7 @@ function App() {
     } catch (error) {
       setIsLogged(false)
       if(error.code==="ERR_NETWORK"){
-        window.alert("Verificar a coneção com o servidor")
+        window.alert("Verificar a conexão com o servidor")
       }
       console.log(error)
     }

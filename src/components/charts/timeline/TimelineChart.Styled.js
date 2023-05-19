@@ -25,7 +25,8 @@ border-radius:8px;
 
     .btn-group-date{
   position:relative;
-  margin:0 auto;
+  display:flex;
+  flex-direction:column;
   height:4vh;
 }
 

@@ -37,10 +37,17 @@ const AreaChart = ({ series, engProp, handleRequisition }) => {
   const [dataIni, setDataIni] = useState()
   const [datafini, setDataFini] = useState()
   const [format, setFormat] = useState()
+useEffect(()=>{
+  setSelectedTime('5m')
+  setDataInicial(new Date(new Date().getTime() - getTimeInMilliseconds('5m')))
+  setDataFinal(new Date())
+},[])
 
-  useEffect(()=>{
+
+  useEffect(() => {
     setSelectedTime('5m')
-  },[screenFlow])
+    handleEng()
+  }, [screenFlow])
 
   const handleEng = () => {
     switch (screenFlow) {
@@ -67,31 +74,22 @@ const AreaChart = ({ series, engProp, handleRequisition }) => {
   }
   const options = {
     chart: {
-      zoom:{
-        enabled:true
+      id:screenFlow,
+      zoom: {
+        enabled: false
       },
-     events: {
-      beforeZoom: function (chartContext, { xaxis, yaxis }) {
-          let min
-          let max
-          if (chartContext.minX < chartContext.maxX) {
-            min = chartContext.minX
-            max = chartContext.maxX
-          } else {
-            max = chartContext.minX
-            min = chartContext.maxX
-          } 
+      toolbar: {
+       tools:{
+        download: true,
+        selection: false,
+        zoom: false,
+        zoomin: false,
+        zoomout: false,
+        pan: false,
+        reset: false ,
 
-          setDataInicial(new Date(min).toISOString())
-          setDataFinal( new Date(max).toISOString())
-          handleRequisition(new Date(min).toISOString(),  new Date(max).toISOString())
-          return {
-            xaxis:{
-              min:new Date(min).getTime(),
-              max:new Date(max).getTime()
-            }
-          }
-        }
+       }
+
       },
       connectNulls: false,
       width: '100%'
@@ -103,7 +101,7 @@ const AreaChart = ({ series, engProp, handleRequisition }) => {
       show: true,
       curve: 'smooth',
       dashArray: 0,
-      width: 1,
+      width: 2,
       lineCap: 'square',
 
     },
@@ -116,7 +114,7 @@ const AreaChart = ({ series, engProp, handleRequisition }) => {
           } else {
             val = value
           }
-          return val + handleEng()
+          return val +handleEng()
         }
       }
 
@@ -149,7 +147,7 @@ const AreaChart = ({ series, engProp, handleRequisition }) => {
         <p className="title-p"></p>
       </div>
       <div className="btn-group-date">
-        <ButtonTime setSelectedTime={setSelectedTime} />
+        <ButtonTime setSelectedTime={setSelectedTime} handleRequisition={handleRequisition} />
         <DateInput handleRequisition={handleRequisition} />
       </div>
       {
@@ -157,7 +155,7 @@ const AreaChart = ({ series, engProp, handleRequisition }) => {
           <ApexChartsReact
             options={options}
             series={series}
-            type="line"
+            type="line" // line para linha e area para area
             width={"100%"}
             height={"780vh"}
           />

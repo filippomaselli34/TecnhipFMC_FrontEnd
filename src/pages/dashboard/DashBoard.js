@@ -46,7 +46,7 @@ const DashBoard = () => {
   const [eng, setEng] = useState()
 
 
-  const [dataInicial, setDataInicial] = useState(new Date(new Date().getTime() - getTimeInMilliseconds(selectedTime)))
+  const [dataInicial, setDataInicial] = useState(new Date(new Date().getTime() - getTimeInMilliseconds('5m')))
   const [dataFinal, setDataFinal] = useState(new Date())
 
 

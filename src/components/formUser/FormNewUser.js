@@ -66,7 +66,9 @@ const FormNewUser = ({ setModalUser }) => {
     const handleRequisitionNewUser = async (body) => {
         try {
             const response = await axios.post(BASE_URL + "users", body, headers)
-
+            console.log(response)
+            handleResetBtn()
+            window.alert(response.data.message)
         } catch (error) {
             window.alert(error.response.data)
             console.log(error)
@@ -82,10 +84,10 @@ const FormNewUser = ({ setModalUser }) => {
             </UserGroup>
             <button onClick={() => setModalUser(0)} className='btn btn-dark clode-btn'>X</button>
             <FormContainer onSubmit={handleSubmitForm}>
-                <h3>Criar novo Usuario</h3>
+                <h3>Criar novo Usuário</h3>
 
                 <GroupWrapper>
-                    <label>Matricula</label>
+                    <label>Matrícula</label>
                     <input
                         placeholder="Matricula"
                         value={matricula}

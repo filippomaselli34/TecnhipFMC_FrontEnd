@@ -58,12 +58,12 @@ useEffect(() => {
         let dataIn
         let dataFi
         if(dI!==undefined){
-            dataIn=new Date(dI).toISOString()
+            dataIn=new Date(new Date(dI).getTime()).toISOString()
         }else{
             dataIn = new Date(new Date(dataInicial).getTime()).toISOString()
         }
         if(dF!==undefined){
-            dataFi=new Date(dF).toISOString()
+            dataFi=new Date(new Date(dI).getTime()).toISOString()
         }else{
             dataFi = new Date(dataFinal).toISOString()
         }
@@ -90,7 +90,7 @@ useEffect(() => {
     return (
         <Container>
 
-            <AreaChart series={series} engProp={handleEng()} handleRequisition={handleRequisition}
+            <AreaChart series={series} engProp={handleEng()} handleRequisition={handleRequisition} ete={false}
  />
         </Container>
     )

@@ -29,10 +29,12 @@ const Overview = (props) => {
 
     const handleReqOverview = useCallback(async () => {
         try {
+            if(equip.equipDB.toLowerCase()!=='ete'){
             setIsloading(true)
             const response = await axios.get(BASE_URL + `equipment?trafo=${equip.equipDB.toLowerCase()}`);
             setResult(response.data);
             setIsloading(false)
+            }
         } catch (error) {
             setIsloading(false)
             console.error(error);
@@ -49,6 +51,7 @@ const Overview = (props) => {
 // handleReqOverview()
 
 //     },[])
+console.log(result,"Olha aqui filippo")
     return (
 
 
