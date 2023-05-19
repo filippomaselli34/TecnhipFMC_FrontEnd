@@ -19,14 +19,14 @@ const LineChart = () => {
     setDataInicial(new Date(new Date().getTime() - getTimeInMilliseconds('5m')))
     setDataFinal(new Date())
     setHasLoaded(false)
-
+ handleRequisition()
   },[])
   useEffect(()=>{
     handleRequisition()
 },[ selectedTime])
 
 
-    const handleRequisition = async () => {
+    const handleRequisition = async (dI, dF) => {
         const newReq ={
           initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)).toISOString(),
           finalDate: new Date(dataFinal).toISOString()

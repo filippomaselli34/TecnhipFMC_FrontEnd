@@ -105,7 +105,7 @@ const ColumnChart = ({data,handleRequisitionHarmonica}) => {
     </div>
     <div className="btn-group-date">
 
-    <ButtonTime setSelectedTime={setSelectedTime} />
+    <ButtonTime setSelectedTime={setSelectedTime} handleRequisition={handleRequisitionHarmonica} />
     <DateInput handleRequisition={handleRequisitionHarmonica}/>
     </div>
     {series && series.length > 0 ? (
