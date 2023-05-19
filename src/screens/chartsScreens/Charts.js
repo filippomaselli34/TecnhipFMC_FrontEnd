@@ -24,10 +24,6 @@ useEffect(()=>{
 
 
 
-useEffect(() => {
-    console.log("entrou", screenFlow)
-
-  }, [screenFlow])
 
   const handleEng = ()=>{
     switch (screenFlow) {

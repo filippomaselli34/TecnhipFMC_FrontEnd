@@ -14,14 +14,11 @@ const DateInput = ({ handleRequisition, timeline }) => {
             <input type="date" value={dataFinalBuffer} onChange={(e) => setDataFinalBuffer(e.target.value)} />
             <button onClick={() => {
                 setSelectedTime('5m')
-                console.log(new Date(dataInicialBuffer).toISOString())
-                console.log(dataFinalBuffer - dataInicialBuffer, "aki")
 
                 if (new Date(dataFinalBuffer).getTime() - new Date(dataInicialBuffer).getTime() > 7 * 24 * 60 * 60 * 1000 && timeline) {
-                    window.alert("No maximo 7 dias")
+                    window.alert("O período não deve exceder 07 dias.")
                 } else {
                     setDataInicial(dataInicialBuffer)
-                    console.log(dataFinalBuffer)
                     setDataFinal(dataFinalBuffer)
                     handleRequisition(new Date(new Date(dataInicialBuffer).getTime() + 3 * 60 * 60 * 1000).toISOString(), new Date(new Date(dataFinalBuffer).getTime() + 3 * 60 * 60 * 1000).toISOString())
                 }

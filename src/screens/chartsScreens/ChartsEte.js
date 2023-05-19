@@ -32,7 +32,6 @@ const ChartsEte = ({ type ,eng }) => {
                 finalDate: new Date(dataFinal).toISOString()
             }
         }
-            console.log(newReq)
         try {
             setIsloading(true)
             const result = await axios.post(BASE_URL+"equipment/analogic",newReq)
