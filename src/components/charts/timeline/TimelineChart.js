@@ -35,7 +35,9 @@ const LineChart = () => {
         setIsLoading(true)
         const result = await axios.post(BASE_URL+"equipment/digital",newReq)
         // setData(result.data)
+       
         setData(result.data)
+      
         setIsLoading(false)
         setHasLoaded(true)
     } catch (error) {
@@ -140,7 +142,7 @@ animations:{
 
   }
 
-
+ console.log(series,"timeline aki filippo")
 
 
   return (

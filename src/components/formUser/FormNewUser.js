@@ -65,7 +65,13 @@ const FormNewUser = ({ setModalUser }) => {
 
     const handleRequisitionNewUser = async (body) => {
         try {
-            const response = await axios.post(BASE_URL + "users", body, headers)
+            console.log(headers)
+            const response = await axios.post(BASE_URL + "users", body, {
+                headers:{
+            
+                    Authorization:window.localStorage.getItem("token")
+                }
+            })
             handleResetBtn()
             window.alert(response.data.message)
         } catch (error) {
