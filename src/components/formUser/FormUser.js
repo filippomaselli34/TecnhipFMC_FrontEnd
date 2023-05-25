@@ -50,7 +50,12 @@ const FormUser = ({ setModalUser }) => {
 
     const handleRequisitionEdit = async (body) => {
         try {
-            const response = await axios.put(BASE_URL + "users", body, headers)
+            const response = await axios.put(BASE_URL + "users", body, {
+                headers:{
+            
+                    Authorization:window.localStorage.getItem("token")
+                }
+            })
         } catch (error) {
             window.alert(error.response)
             console.log(error)

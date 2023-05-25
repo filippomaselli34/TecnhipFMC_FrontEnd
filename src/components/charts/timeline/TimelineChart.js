@@ -28,16 +28,17 @@ const LineChart = () => {
 
     const handleRequisition = async (dI, dF) => {
         const newReq ={
-          initialDate: new Date(new Date(dataInicial).getTime()-getTimeInMilliseconds(selectedTime)).toISOString(),
+          initialDate: new Date(new Date(dataInicial).getTime()).toISOString(),
           finalDate: new Date(dataFinal).toISOString()
         }
+        console.log(newReq)
     try {
         setIsLoading(true)
         const result = await axios.post(BASE_URL+"equipment/digital",newReq)
         // setData(result.data)
        
         setData(result.data)
-      
+        console.log(result.data)
         setIsLoading(false)
         setHasLoaded(true)
     } catch (error) {
@@ -54,42 +55,8 @@ const LineChart = () => {
 
   const series = [
     {
-      data:[
-        {
-          x:"Motor Misturador 01"
-        },
-        {
-          x:"Motor Misturador 02"
-        },
-        {
-          x:"Válvula Descarga 01"
-        },
-        {
-          x:"Válvula Descarga 02"
-        },
-        {
-          x:"Bomba Elevatória 02"
-        },
-        {
-          x:"Bomba Elevatória 01"
-        },
-        {
-          x:"Motor Aeração 02"
-        },
-        {
-          x:"Motor Aeração 01"
-        },
-      
-      {
-        x:"Cloreto Férrico Nível Baixo"
-      },
-      {
-        x:"Soda Cáustica Nível Baixo"
-      },
-        ...data
-      ]
+      data      
 
-      
     }
   ];
 
@@ -131,7 +98,6 @@ animations:{
     },
     xaxis: {
       type: "datetime",
-      min: new Date().getTime() - getTimeInMilliseconds(selectedTime) - 3*60*60*1000
 
     },
     plotOptions: {
